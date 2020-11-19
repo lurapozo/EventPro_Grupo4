@@ -9,7 +9,7 @@ package EventPro;
  *
  * @author luisr
  */
-public class Menu {
+public class Interfaz {
 
     /**
      * @param args the command line arguments
