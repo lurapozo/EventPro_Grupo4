@@ -9,6 +9,48 @@ package Menu;
  *
  * @author Pisco
  */
-public class Usuario {
-    
+public class Usuario{
+    protected String nombre;
+    protected String apellido;
+    protected String contrasenia;
+    protected Boolean tipo;
+//constructor de sobrecarga con todos los atributos
+    public Usuario(String nombre, String apellido, String contrasenia, Boolean tipo) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.contrasenia = contrasenia;
+        this.tipo = tipo;
+    }
+//getters y setters para poder usarlo en otras clases no hijas
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public String getContrasenia() {
+        return contrasenia;
+    }
+
+    public Boolean getTipo() {
+        return tipo;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+
+    public void setTipo(Boolean tipo) {
+        this.tipo = tipo;
+    }
 }

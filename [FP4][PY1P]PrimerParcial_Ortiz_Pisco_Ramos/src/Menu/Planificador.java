@@ -9,6 +9,10 @@ package Menu;
  *
  * @author Pisco
  */
-public class Planificador {
+public class Planificador extends Usuario{
+//constructor de sobrecarga con todos los atributos
+    public Planificador(String nombre, String apellido, String contrasenia, Boolean tipo) {
+        super(nombre, apellido, contrasenia, tipo);
+    }
     
 }
