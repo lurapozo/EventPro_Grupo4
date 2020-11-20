@@ -35,8 +35,7 @@ public class Evento {
     private int disfrazados;
     private int idordendepago;
     //orden de pago
-    
-    
+    //.
     //Constructor
     public Evento(TipoEvento tipoevento, LocalDate fecha, LocalTime horaIni, LocalTime horaFini, String estadoevento, Cliente cliente, Cliente planificador, int id, int codigo, String lugar, float precio, int capacidad, int numinvitados, Adicionales elemeadi, String transporte, int numpersonastransporte, int disfrazados, int idordendepago){
         this.tipoevento = tipoevento;
