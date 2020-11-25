@@ -1,0 +1,6 @@
+Usuario;telefono;mail
+user1;0976352234;agonzalez@gmail.com
+lteran;0937255173;lteran@gmail.com
+
+
+
