@@ -9,6 +9,6 @@ package Menu;
  *
  * @author giana
  */
-public class Menu {
+public class main {
     
 }
