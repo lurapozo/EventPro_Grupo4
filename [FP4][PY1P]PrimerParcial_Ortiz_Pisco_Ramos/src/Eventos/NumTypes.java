@@ -9,7 +9,7 @@ package Eventos;
  *
  * @author luisr
  */
-public enum NewEnum {
+public enum NumTypes {
 }
 //creacion de numtypes para mejor manejo de variables
 enum TipoEvento{
