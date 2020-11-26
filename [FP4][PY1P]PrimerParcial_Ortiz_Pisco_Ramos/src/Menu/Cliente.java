@@ -5,6 +5,9 @@
  */
 package Menu;
 
+import Tramites.Solicitud;
+import java.time.LocalDate;
+
 /**
  *
  * @author Pisco
@@ -34,6 +37,12 @@ public class Cliente extends Usuario{
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+    
+    
+    //public void Solicitud(cliente, String planificador, String estadoevento, LocalDate fechasolicitud, LocalDate fechaevento){
+      //  Solicitud solicitud1 = new Solicitud;
+        
+    //}
     
     
 }
