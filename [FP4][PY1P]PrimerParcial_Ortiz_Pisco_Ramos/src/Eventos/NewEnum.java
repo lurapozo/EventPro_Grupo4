@@ -11,6 +11,7 @@ package Eventos;
  */
 public enum NewEnum {
 }
+//creacion de numtypes para mejor manejo de variables
 enum TipoEvento{
     bodas, infantiles, empresariales
 }
