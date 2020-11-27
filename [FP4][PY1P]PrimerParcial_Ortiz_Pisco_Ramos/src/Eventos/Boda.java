@@ -40,6 +40,6 @@ public class Boda extends Evento {
     }
     @Override
     public String MostrarMensaje(){
-        return "Recuerde que los novios tendran un 25% de descuento si compran sus tickets de luna de miel en la aerolinea LATAM";
+        return "Recuerde que los novios tendran un 25% de descuento si compran sus tickets de luna de miel en la aerolinea LATAM.";
     }
 }

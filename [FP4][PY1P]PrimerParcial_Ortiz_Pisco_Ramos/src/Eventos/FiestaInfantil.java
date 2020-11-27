@@ -50,6 +50,6 @@ public class FiestaInfantil extends Evento{
     }
     @Override
     public String MostrarMensaje(){
-        return "Si realizan un próximo evento en las mismas instalaciones en un plazo de 6 meses se les otorgará en servicio de música gratuito";
+        return "Si realizan un próximo evento en las mismas instalaciones en un plazo de 6 meses se les otorgará en servicio de música gratuito.";
     }
 }
