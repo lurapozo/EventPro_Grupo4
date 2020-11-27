@@ -30,14 +30,12 @@ public class Evento {
     private int capacidad;
     private int numinvitados;
     private Adicionales elemeadi;
-    private String transporte;
-    private int numpersonastransporte;
     private int disfrazados;
     private int idordendepago;
     //orden de pago
     //.
     //Constructor
-    public Evento(TipoEvento tipoevento, LocalDate fecha, LocalTime horaIni, LocalTime horaFini, String estadoevento, Cliente cliente, Cliente planificador, int id, int codigo, String lugar, float precio, int capacidad, int numinvitados, Adicionales elemeadi, String transporte, int numpersonastransporte, int disfrazados, int idordendepago){
+    public Evento(TipoEvento tipoevento, LocalDate fecha, LocalTime horaIni, LocalTime horaFini, String estadoevento, Cliente cliente, Cliente planificador, int id, int codigo, String lugar, float precio, int capacidad, int numinvitados, Adicionales elemeadi, int disfrazados, int idordendepago){
         this.tipoevento = tipoevento;
         this.fecha = fecha;
         this.horaIni = horaIni;
@@ -52,8 +50,6 @@ public class Evento {
         this.capacidad = capacidad;
         this.numinvitados = numinvitados;
         this.elemeadi = elemeadi;
-        this.transporte = transporte;
-        this.numpersonastransporte = numpersonastransporte;
         this.disfrazados = disfrazados;
         this.idordendepago = idordendepago;
     }
@@ -110,14 +106,6 @@ public class Evento {
 
     public Adicionales getElemeadi() {
         return elemeadi;
-    }
-
-    public String getTransporte() {
-        return transporte;
-    }
-
-    public int getNumpersonastransporte() {
-        return numpersonastransporte;
     }
 
     public int getDisfrazados() {
@@ -186,14 +174,6 @@ public class Evento {
         this.elemeadi = elemeadi;
     }
 
-    public void setTransporte(String transporte) {
-        this.transporte = transporte;
-    }
-
-    public void setNumpersonastransporte(int numpersonastransporte) {
-        this.numpersonastransporte = numpersonastransporte;
-    }
-
     public void setDisfrazados(int disfrazados) {
         this.disfrazados = disfrazados;
     }
@@ -212,5 +192,8 @@ public class Evento {
     }
     public void setId(){
         id=obtieneId();
+    }
+    public String MostrarMensaje(){
+        return "";
     }
 }
