@@ -19,10 +19,8 @@ public class Solicitud {
     private LocalDate fechasolicitud;
     private LocalDate fechaevento;
 
-    public Solicitud(String cliente, String planificador, String estadoevento, LocalDate fechasolicitud, LocalDate fechaevento) {
+    public Solicitud(String cliente, LocalDate fechasolicitud, LocalDate fechaevento) {
         this.cliente = cliente;
-        this.planificador = planificador;
-        this.estadoevento = estadoevento;
         this.fechasolicitud = fechasolicitud;
         this.fechaevento = fechaevento;
     }

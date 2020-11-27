@@ -13,9 +13,9 @@ public class Usuario{
     protected String nombre;
     protected String apellido;
     protected String contrasenia;
-    protected Boolean tipo;
+    protected char tipo;
 //constructor de sobrecarga con todos los atributos
-    public Usuario(String nombre, String apellido, String contrasenia, Boolean tipo) {
+    public Usuario(String nombre, String apellido, String contrasenia, char tipo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.contrasenia = contrasenia;
@@ -34,7 +34,7 @@ public class Usuario{
         return contrasenia;
     }
 
-    public Boolean getTipo() {
+    public char getTipo() {
         return tipo;
     }
 
@@ -50,7 +50,7 @@ public class Usuario{
         this.contrasenia = contrasenia;
     }
 
-    public void setTipo(Boolean tipo) {
+    public void setTipo(char tipo) {
         this.tipo = tipo;
     }
 }

@@ -5,14 +5,19 @@
  */
 package Menu;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Pisco
  */
 public class Planificador extends Usuario{
 //constructor de sobrecarga con todos los atributos
-    public Planificador(String nombre, String apellido, String contrasenia, Boolean tipo) {
+    ArrayList<String> eventosdeplanificador = new ArrayList<String>();
+    
+    public Planificador(String nombre, String apellido, String contrasenia, char tipo) {
         super(nombre, apellido, contrasenia, tipo);
+        tipo='P';
     }
     
 }
