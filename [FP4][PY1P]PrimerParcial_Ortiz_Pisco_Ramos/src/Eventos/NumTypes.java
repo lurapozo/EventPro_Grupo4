@@ -18,9 +18,7 @@ enum TipoEvento{
 enum EstadoEvento{
     pendiente, aprovado
 }
-enum EstadoP{
-    PagoPendiente, Pagado
-}
+
 enum Transporte{
     Aplica, NoAplica
 }

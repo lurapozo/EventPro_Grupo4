@@ -45,35 +45,64 @@ public class Cliente extends Usuario{
     //Registrar solicitud
     public void ingresaSolicitud() {
         Scanner sc= new Scanner(System.in);
+        System.out.println('*'*20+"Nueva Solicitud"+'*'*20);
+        System.out.println("Bienvenido "+getNombre()+' '+getApellido());
+        LocalDate fechaevento= ValidarTiempo();
+        LocalDate hoy= LocalDate.now();
+        Solicitud solicitud1= new Solicitud(getNombre()+' '+getApellido(), hoy, fechaevento);
+        System.out.println("Datos correctos, desea registrar su solicitud?    [S/N}]");
+        String respuesta=sc.nextLine();
+        if (respuesta.equals("S")){
+            //REGISTRAR EN TXT
+        }else{
+            System.out.println("Operacion cancelada");
+        }
+    }
+    
+    //validar tiempo
+    public LocalDate ValidarTiempo() {
+        Scanner sc= new Scanner(System.in);
         int a=0;
         LocalDate hoy=LocalDate.now();
         LocalDate fechamin=hoy;
         while(a == 0){
-            System.out.println("Ingrese el tipo de evento:  [boda/infantil/empresarial]");
-            String tip =sc.nextLine();
-            if (tip.equals("boda")){
-                fechamin=hoy.plusMonths(10);
+            System.out.println("Elija un tipo de evento: ");
+            System.out.println("1 Boda");
+            System.out.println("2 Fiesta Infantil");
+            System.out.println("3 Fiesta Empresarial");
+            int tip =sc.nextInt();
+            String tipo;
+            if (tip==1){
+                fechamin=fechamin.plusMonths(10);
+                tipo="Boda";
                 a=1;
-            }else if(tip.equals("infantil")){
-                fechamin=hoy.plusDays(21);
+            }else if(tip==2){
+                fechamin=fechamin.plusDays(21);
+                tipo="Fiesta Infantil";
                 a=1;
-            }else if(tip.equals("empresarial")){
-                fechamin=hoy.plusMonths(2);
+            }else if(tip==3){
+                fechamin=fechamin.plusMonths(2);
+                tipo="Fiesta Empresarial";
                 a=1;
             }else{
                 System.out.println("Ingreso invalido");
             }
         }
+        System.out.println('*'*20+tipo+'*'*20); //para mostrar el nombre del evento
         int b=0;
+        LocalDate fechaevento=hoy;
         while (b==0){
-            System.out.println("Ingrese fecha para el evento:  [dd/MM/yyyy]");
+            System.out.println("Ingrese fecha para el evento:  [dd-MM-yyyy]");
             String fecha =sc.nextLine();
-            LocalDate localDate = LocalDate.parse(fecha);
-            if (localDate==fechamin){
-                b=1;
+            fechaevento = LocalDate.parse(fecha);
+            if (fechaevento.isBefore(fechamin)){
+                System.out.println("Intente denuevo, la fecha es muy pronto.");
             }else{
-                System.out.println(" Intente denuevo");
+                System.out.println("Fecha correcta. :0");
+                b=1;
             }
         }
+        sc.close();
+        return fechaevento;
     }
 }
