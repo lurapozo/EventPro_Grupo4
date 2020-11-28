@@ -47,23 +47,33 @@ public class Cliente extends Usuario{
         Scanner sc= new Scanner(System.in);
         int a=0;
         LocalDate hoy=LocalDate.now();
+        LocalDate fechamin=hoy;
         while(a == 0){
             System.out.println("Ingrese el tipo de evento:  [boda/infantil/empresarial]");
             String tip =sc.nextLine();
             if (tip.equals("boda")){
-                LocalDate fechamin=hoy.plusMonths(10);
+                fechamin=hoy.plusMonths(10);
                 a=1;
             }else if(tip.equals("infantil")){
-                LocalDate fechamin=hoy.plusDays(21);
+                fechamin=hoy.plusDays(21);
                 a=1;
             }else if(tip.equals("empresarial")){
-                LocalDate fechamin=hoy.plusMonths(2);
+                fechamin=hoy.plusMonths(2);
                 a=1;
             }else{
                 System.out.println("Ingreso invalido");
             }
         }
-        //Usuario ingresa fecha
-        
+        int b=0;
+        while (b==0){
+            System.out.println("Ingrese fecha para el evento:  [dd/MM/yyyy]");
+            String fecha =sc.nextLine();
+            LocalDate localDate = LocalDate.parse(fecha);
+            if (localDate==fechamin){
+                b=1;
+            }else{
+                System.out.println(" Intente denuevo");
+            }
+        }
     }
 }
