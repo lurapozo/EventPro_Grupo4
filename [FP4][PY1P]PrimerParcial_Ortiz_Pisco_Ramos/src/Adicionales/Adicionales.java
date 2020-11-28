@@ -1,18 +1,20 @@
+package Adicionales;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Eventos;
 
+import Eventos.NumTypes;
 /**
  *
  * @author Pisco
  */
-class Adicionales {
-    private AdicionalTipo tipoadicional;
-    private int cantidad;
-    private double TotalAdicional;
+public class Adicionales {
+    protected AdicionalTipo tipoadicional;
+    protected int cantidad;
+    protected double TotalAdicional;
 //getters y setters
     public AdicionalTipo getTipoadicional() {
         return tipoadicional;
@@ -42,4 +44,13 @@ class Adicionales {
         this.cantidad=cantidad;
         return TotalAdicional;
     }
+
+    public Adicionales(int cantidad, double TotalAdicional) {
+        this.cantidad = cantidad;
+        this.TotalAdicional = TotalAdicional;
+    }
+    
+}
+    enum AdicionalTipo{
+        comida, bocaditos, bebida, musica, fotografia
 }

@@ -15,9 +15,6 @@ public enum NumTypes {
 enum TipoEvento{
     bodas, infantiles, empresariales
 }
-enum AdicionalTipo{
-    comida, bocaditos, bebida, musica, fotografia
-}
 enum EstadoEvento{
     pendiente, aprovado
 }
