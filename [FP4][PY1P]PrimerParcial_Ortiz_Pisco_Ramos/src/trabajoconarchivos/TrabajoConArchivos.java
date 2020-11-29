@@ -19,7 +19,7 @@ public class TrabajoConArchivos {
         ManejoArchivos.EscribirArchivo("archivosalida.txt","Hola!");
         ManejoArchivos.EscribirArchivo("archivosalida.txt","Adios!");
         ManejoArchivos.LeeFichero("usuarios.txt");
-        ManejoArchivos obj = ManejoArchivos();
+        ManejoArchivos obj = new ManejoArchivos();
     }
     
 }

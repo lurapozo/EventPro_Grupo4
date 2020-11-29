@@ -7,8 +7,10 @@ package Menu;
 
 import Eventos.NumTypes;
 import Tramites.Solicitud;
+import static Tramites.Solicitud.EstadoEvento.pendiente;
 import java.time.LocalDate;
 import java.util.Scanner;
+import static trabajoconarchivos.ManejoArchivos.EscribirArchivo;
 
 /**
  *
@@ -53,7 +55,9 @@ public class Cliente extends Usuario{
         System.out.println("Datos correctos, desea registrar su solicitud?    [S/N}]");
         String respuesta=sc.nextLine();
         if (respuesta.equals("S")){
-            //REGISTRAR EN TXT
+            solicitud1.setNumsolicitud();
+            solicitud1.setEstadoevento(pendiente);
+            EscribirArchivo("solicitudes.txt",solicitud1.getNumsolicitud()+','+solicitud1.getCliente()+','+solicitud1.getPlanificador()+','+solicitud1.getFechasolicitud()+','+solicitud1.getFechaevento()+','+solicitud1.getEstadoevento());
         }else{
             System.out.println("Operacion cancelada");
         }

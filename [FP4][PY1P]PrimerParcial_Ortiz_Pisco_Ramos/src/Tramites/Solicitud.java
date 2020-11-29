@@ -29,8 +29,7 @@ public class Solicitud {
     
     //Getters
     public int getNumsolicitud() {
-        Random r = new Random();
-        return r.nextInt(1500);
+        return numsolicitud;
     }
 
     public String getCliente() {
@@ -54,8 +53,9 @@ public class Solicitud {
     }
     
     //Setters
-    public void setNumsolicitud(int numsolicitud) {
-        this.numsolicitud = numsolicitud;
+    public void setNumsolicitud(){
+        Random r = new Random();
+        this.numsolicitud=r.nextInt(1500);
     }
 
     public void setCliente(String cliente) {
