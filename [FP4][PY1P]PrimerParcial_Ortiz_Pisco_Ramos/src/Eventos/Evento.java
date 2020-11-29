@@ -16,23 +16,23 @@ import java.util.Random;
  * @author Pisco
  */
 public class Evento {
-    private TipoEvento tipoevento;
-    //private Solicitud solicitud;
-    private LocalDate fecha;
-    private LocalTime horaIni;
-    private LocalTime horaFini;
-    private String estadoevento;
-    private Cliente cliente;
-    private Cliente planificador;
-    private int id;
-    private int codigo;
-    private String lugar;
-    private float precio;
-    private int capacidad;
-    private int numinvitados;
-    private Adicionales elemeadi;
-    private int disfrazados;
-    private int idordendepago;
+    protected TipoEvento tipoevento;
+    //protected Solicitud solicitud;
+    protected LocalDate fecha;
+    protected LocalTime horaIni;
+    protected LocalTime horaFini;
+    protected String estadoevento;
+    protected Cliente cliente;
+    protected Cliente planificador;
+    protected int id;
+    protected int codigo;
+    protected String lugar;
+    protected float precio;
+    protected int capacidad;
+    protected int numinvitados;
+    protected Adicionales elemeadi;
+    protected int disfrazados;
+    protected int idordendepago;
     //orden de pago
     //.
     //Constructor

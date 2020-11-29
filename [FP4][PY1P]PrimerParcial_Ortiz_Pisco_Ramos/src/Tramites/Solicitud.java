@@ -6,6 +6,7 @@
 package Tramites;
 import java.time.LocalDate;
 import java.util.Random;
+import Eventos.NumTypes;
 
 /**
  *
@@ -14,8 +15,9 @@ import java.util.Random;
 public class Solicitud {
     private int numsolicitud;
     private String cliente;
+    // planificador debe ser clase planificador
     private String planificador;
-    private String estadoevento;
+    private EstadoEvento estadoevento;
     private LocalDate fechasolicitud;
     private LocalDate fechaevento;
 
@@ -39,7 +41,7 @@ public class Solicitud {
         return planificador;
     }
 
-    public String getEstadoevento() {
+    public EstadoEvento getEstadoevento() {
         return estadoevento;
     }
 
@@ -64,7 +66,7 @@ public class Solicitud {
         this.planificador = planificador;
     }
 
-    public void setEstadoevento(String estadoevento) {
+    public void setEstadoevento(EstadoEvento estadoevento) {
         this.estadoevento = estadoevento;
     }
 
@@ -75,8 +77,7 @@ public class Solicitud {
     public void setFechaevento(LocalDate fechaevento) {
         this.fechaevento = fechaevento;
     }
-    
-    
-    
-    
+    public enum EstadoEvento{
+        pendiente, aprovado
+}    
 }

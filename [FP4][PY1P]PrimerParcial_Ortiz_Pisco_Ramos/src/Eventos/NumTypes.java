@@ -15,10 +15,6 @@ public enum NumTypes {
 enum TipoEvento{
     bodas, infantiles, empresariales
 }
-enum EstadoEvento{
-    pendiente, aprovado
-}
-
 enum Transporte{
     Aplica, NoAplica
 }
