@@ -13,9 +13,15 @@ import java.util.ArrayList;
  * @author Verónica
  */
 public class ManejoArchivos {
-
+        static ArrayList<String> lineas = new ArrayList<>();
+        static ArrayList<String> nombres = new ArrayList<>();
+        static ArrayList<String> apellidos = new ArrayList<>();
+        static ArrayList<String> usuarios = new ArrayList<>();
+        static ArrayList<String> contrasenias = new ArrayList<>();
+        static ArrayList<String> tipo = new ArrayList<>();
     public static ArrayList<String> LeeFichero(String nombrearchivo) {
-        ArrayList<String> lineas = new ArrayList<>();
+
+
         File archivo = null;
         FileReader fr = null;
         BufferedReader br = null;
@@ -30,6 +36,37 @@ public class ManejoArchivos {
             // Lectura del fichero
             String linea;
             while ((linea = br.readLine()) != null) {
+                
+                // agregamos los nombres a la lista nombres
+                String[] partes = linea.split(";");
+                for(int i=0; i<partes.length; i++){
+                    if (i==0) {
+                        System.out.println(partes[i]);
+                        nombres.add(partes[i]);
+                    }
+                    if (i==1) {
+                        System.out.println(partes[i]);
+                        apellidos.add(partes[i]);
+                    }
+                    if (i==2) {
+                        System.out.println(partes[i]);
+                        usuarios.add(partes[i]);
+
+                    }
+                    if (i==3) {
+                        System.out.println(partes[i]);
+                        contrasenias.add(partes[i]);
+                        
+                    }
+                    if (i==4) {
+                        System.out.println(partes[i]);
+                        tipo.add(partes[i]);
+                        
+                    }
+                    
+                }
+                
+                // agregamos los apellidos
                 System.out.println(linea);
                 lineas.add(linea);
 
@@ -50,8 +87,28 @@ public class ManejoArchivos {
             }
         }
         return lineas;
-
     }
+    
+    
+ 
+        //verificar si existen los datos dentro de las listas
+            public ManejoArchivos(String usuario,String contrasenia){
+                int indiceusario = usuarios.indexOf(usuario);
+                if (indiceusario != -1) {
+                    System.out.println("Usuario correcto");
+                }
+                else{
+                    System.out.println("Usuario incorrecto");
+                }
+                int indicecontrasenia = contrasenias.indexOf(contrasenia);
+                if (indicecontrasenia != -1) {
+                    System.out.println("Contraseña correcta");
+                }
+                else{
+                    System.out.println("Contraseña incorrecta");
+                }
+                
+            }
 
     public static void EscribirArchivo(String nombreArchivo, String linea) {
 

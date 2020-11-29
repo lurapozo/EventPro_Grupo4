@@ -15,10 +15,11 @@ public class TrabajoConArchivos {
      * @param args the command line arguments
      */
      public static void main(String[] arg) {
+         
         ManejoArchivos.EscribirArchivo("archivosalida.txt","Hola!");
         ManejoArchivos.EscribirArchivo("archivosalida.txt","Adios!");
-        ManejoArchivos.LeeFichero("archivo.txt");
-
+        ManejoArchivos.LeeFichero("usuarios.txt");
+        ManejoArchivos obj = ManejoArchivos();
     }
     
 }
