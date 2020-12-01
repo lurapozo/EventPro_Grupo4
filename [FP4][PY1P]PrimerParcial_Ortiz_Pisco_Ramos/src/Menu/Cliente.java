@@ -53,6 +53,7 @@ public class Cliente extends Usuario{
         LocalDate hoy= LocalDate.now();
         Solicitud solicitud1= new Solicitud(getNombre()+' '+getApellido(), hoy, fechaevento);
         System.out.println("Datos correctos, desea registrar su solicitud?    [S/N}]");
+        
         String respuesta=sc.nextLine();
         if (respuesta.equals("S")){
             solicitud1.setNumsolicitud();

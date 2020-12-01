@@ -5,6 +5,8 @@
  */
 package trabajoconarchivos;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Verónica
@@ -16,10 +18,21 @@ public class TrabajoConArchivos {
      */
      public static void main(String[] arg) {
          
-        ManejoArchivos.EscribirArchivo("archivosalida.txt","Hola!");
-        ManejoArchivos.EscribirArchivo("archivosalida.txt","Adios!");
+        ArrayList<String> lineas;
+        ArrayList<String> nombres;
+        ArrayList<String> apellidos;
+        ArrayList<String> usuarios;
+        ArrayList<String> contrasenias;
+        ArrayList<String> tipo;
+         
+        ManejoArchivos.EscribirArchivo("archivosalida.txt","Prueba");
+        ManejoArchivos.EscribirArchivo("archivosalida.txt","Afios!");
+        ManejoArchivos.LeeFichero("archivo.txt");
         ManejoArchivos.LeeFichero("usuarios.txt");
-        ManejoArchivos obj = new ManejoArchivos();
+        //ManejoArchivos A1= new ManejoArchivos("asd","asdasdasd");ivosalida.txt","Prueba");
+        ManejoArchivos.EscribirArchivo("archivosalida.txt","Afios!");
+        ManejoArchivos.LeeFichero("archivo.txt");
+        ManejoArchivos.LeeFichero("usuarios.txt");
     }
     
 }
