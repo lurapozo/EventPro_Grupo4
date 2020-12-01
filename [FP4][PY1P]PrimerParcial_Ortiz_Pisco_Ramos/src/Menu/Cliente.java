@@ -5,12 +5,20 @@
  */
 package Menu;
 
+import java.io.*;
 import Eventos.NumTypes;
 import Tramites.Solicitud;
 import static Tramites.Solicitud.EstadoEvento.pendiente;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
+import trabajoconarchivos.ManejoArchivos;
 import static trabajoconarchivos.ManejoArchivos.EscribirArchivo;
+import static trabajoconarchivos.ManejoArchivos.LeeFichero;
 
 /**
  *
@@ -53,7 +61,9 @@ public class Cliente extends Usuario{
         LocalDate hoy= LocalDate.now();
         Solicitud solicitud1= new Solicitud(getNombre()+' '+getApellido(), hoy, fechaevento);
         System.out.println("Datos correctos, desea registrar su solicitud?    [S/N}]");
-        
+        ArrayList<String> lista= new ArrayList<String>();
+        lista=LeeFichero("usuarios.txt");
+        asignarPlanificador(lista);
         String respuesta=sc.nextLine();
         if (respuesta.equals("S")){
             solicitud1.setNumsolicitud();
@@ -109,5 +119,21 @@ public class Cliente extends Usuario{
         }
         sc.close();
         return fechaevento;
+    }
+    
+    //asignar planificador
+    public String asignarPlanificador(ArrayList<String> lista){
+        ArrayList<String> planificadores = new ArrayList<String>();
+        for (int i=0; i<lista.size(); i++){
+            String a1=lista.get(i);
+            String[] a2=a1.split(";");
+            if (a2[-1]=="P"){
+                planificadores.add(a2[0]+" "+a2[1]);
+            }
+        }
+        Random rn = new Random();
+        int answer = rn.nextInt(planificadores.size());
+        String planificador=planificadores.get(answer);
+        return planificador;
     }
 }
