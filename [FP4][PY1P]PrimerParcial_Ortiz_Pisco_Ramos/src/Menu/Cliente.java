@@ -63,7 +63,7 @@ public class Cliente extends Usuario{
         System.out.println("Datos correctos, desea registrar su solicitud?    [S/N}]");
         ArrayList<String> lista= new ArrayList<String>();
         lista=LeeFichero("usuarios.txt");
-        asignarPlanificador(lista);
+        solicitud1.setPlanificador(asignarPlanificador(lista));
         String respuesta=sc.nextLine();
         if (respuesta.equals("S")){
             solicitud1.setNumsolicitud();
