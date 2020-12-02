@@ -7,6 +7,9 @@ package Menu;
 
 import java.io.*;
 import Eventos.NumTypes;
+import Tramites.OrdenPago;
+import Tramites.OrdenPago.EstadoP;
+import static Tramites.OrdenPago.EstadoP.PagoPendiente;
 import Tramites.Solicitud;
 import static Tramites.Solicitud.EstadoEvento.pendiente;
 import java.io.BufferedReader;
@@ -27,6 +30,7 @@ import static trabajoconarchivos.ManejoArchivos.LeeFichero;
 public class Cliente extends Usuario{
     private String telefono;
     private String correo;
+    private EstadoP estado;
 //constructor de sobrecarga con todos los atributos
     public Cliente(String telefono, String correo, String nombre, String apellido, String contrasenia, char tipo) {
         super(nombre, apellido, contrasenia, tipo);
@@ -71,6 +75,26 @@ public class Cliente extends Usuario{
             EscribirArchivo("solicitudes.txt",solicitud1.getNumsolicitud()+','+solicitud1.getCliente()+','+solicitud1.getPlanificador()+','+solicitud1.getFechasolicitud()+','+solicitud1.getFechaevento()+','+solicitud1.getEstadoevento());
         }else{
             System.out.println("Operacion cancelada");
+        }
+    }
+    
+    //Registrar Pago
+    public void registrarPago(){
+        ArrayList<String> lista = LeeFichero("solicitudes.txt");
+        String nombrecliente = getNombre()+' '+getApellido();
+        String codigoevento = idPagoPendiente(lista, nombrecliente);
+        System.out.println("El codigo de su orden es: "+codigoevento);
+        System.out.println("Desea registrar pago?   [S/N]");
+        Scanner sc= new Scanner(System.in);
+        String resp = sc.nextLine();
+        if (resp.equals("S")){
+            System.out.println("Ingrese codigo de transaccion: ");
+            int codigotransaccion = sc.nextInt();
+            LocalDate fecha1 = LocalDate.now();
+            int codigoeventoINT = Integer.parseInt(codigoevento);
+            estado=PagoPendiente;
+            double prueba= 12.0; //Aun no tenemos .getTotalpagar, por el momento usamos como valor defecto 12.0
+            OrdenPago orden= new OrdenPago(codigoeventoINT, codigotransaccion, prueba, estado, fecha1);
         }
     }
     
@@ -135,5 +159,18 @@ public class Cliente extends Usuario{
         int answer = rn.nextInt(planificadores.size());
         String planificador=planificadores.get(answer);
         return planificador;
+    }
+    
+    //VERIFICAR PAGO PENDIENTE
+    public String idPagoPendiente(ArrayList<String> lista, String nombrecliente){
+        String pagospendientes = null;
+        for (int i=0; i<lista.size(); i++){
+            String a1=lista.get(i);
+            String[] a2=a1.split(",");
+            if ((a2[-1]=="pendiente") && (a2[1]==nombrecliente)){
+                pagospendientes=a2[0];
+            }
+        }
+        return pagospendientes;
     }
 }

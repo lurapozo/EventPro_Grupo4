@@ -15,22 +15,20 @@ public class OrdenPago {
     private int codigoevento;
     private int codigopago;
     private int codigotransaccion;
-    private float totalpagar;
+    private double totalpagar;
     private EstadoP estadopago;
     private LocalDate fecha1;
     private LocalDate fecha2;
     
     //Constructor
-    public OrdenPago(int codigoevento, int codigopago, int codigotransaccion, float totalpagar, EstadoP estadopago, LocalDate fecha1, LocalDate fecha2){    
+    public OrdenPago(int codigoevento, int codigotransaccion, double totalpagar, EstadoP estadopago, LocalDate fecha1){    
         this.codigoevento = codigoevento;
         this.codigopago = codigopago;
-        this.codigotransaccion = codigotransaccion;
         this.totalpagar = totalpagar;
         this.estadopago = estadopago;
         this.fecha1 = fecha1;
-        this.fecha2 = fecha2;
     }
-
+//FALTA METODO PARA CREAR FECHA 2!!!!!!!!!!!!!
     //generadores de codigos
     private int generarcodigopago() {
         Random r = new Random();
