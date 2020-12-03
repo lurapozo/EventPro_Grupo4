@@ -16,6 +16,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -38,6 +39,7 @@ public class Cliente extends Usuario{
         this.correo = correo;
         tipo='C';
     }
+    
 //getters y setters para poder usarlo en otras clases
     public String getTelefono() {
         return telefono;
@@ -58,17 +60,17 @@ public class Cliente extends Usuario{
 
     //Registrar solicitud
     public void ingresaSolicitud() {
-        Scanner sc= new Scanner(System.in);
-        System.out.println('*'*20+"Nueva Solicitud"+'*'*20);
-        System.out.println("Bienvenido "+getNombre()+' '+getApellido());
-        LocalDate fechaevento= ValidarTiempo();
-        LocalDate hoy= LocalDate.now();
+        System.out.println("************Bienvenido "+getNombre()+' '+getApellido()+"************");
+        LocalDate fechaevento= ValidarTiempo();//Poner fecha en "modo alrevez"
+        LocalDate hoy= LocalDate.now();//yyyy-mm-dd , en vez de dd-mm-yyyy
         Solicitud solicitud1= new Solicitud(getNombre()+' '+getApellido(), hoy, fechaevento);
+        Scanner sc1= new Scanner(System.in);
         System.out.println("Datos correctos, desea registrar su solicitud?    [S/N}]");
+        String respuesta=sc1.nextLine();
         ArrayList<String> lista= new ArrayList<String>();
         lista=LeeFichero("usuarios.txt");
         solicitud1.setPlanificador(asignarPlanificador(lista));
-        String respuesta=sc.nextLine();
+        
         if (respuesta.equals("S")){
             solicitud1.setNumsolicitud();
             solicitud1.setEstadoevento(pendiente);
@@ -96,6 +98,7 @@ public class Cliente extends Usuario{
             double prueba= 12.0; //Aun no tenemos .getTotalpagar, por el momento usamos como valor defecto 12.0
             OrdenPago orden= new OrdenPago(codigoeventoINT, codigotransaccion, prueba, estado, fecha1);
         }
+        sc.close();
     }
     
     //validar tiempo
@@ -110,6 +113,7 @@ public class Cliente extends Usuario{
             System.out.println("2 Fiesta Infantil");
             System.out.println("3 Fiesta Empresarial");
             int tip =sc.nextInt();
+            sc.nextLine();
             String tipo;
             if (tip==1){
                 fechamin=fechamin.plusMonths(10);
@@ -132,8 +136,9 @@ public class Cliente extends Usuario{
         LocalDate fechaevento=hoy;
         while (b==0){
             System.out.println("Ingrese fecha para el evento:  [dd-MM-yyyy]");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
             String fecha =sc.nextLine();
-            fechaevento = LocalDate.parse(fecha);
+            fechaevento = LocalDate.parse(fecha, formatter);
             if (fechaevento.isBefore(fechamin)){
                 System.out.println("Intente denuevo, la fecha es muy pronto.");
             }else{
@@ -151,7 +156,7 @@ public class Cliente extends Usuario{
         for (int i=0; i<lista.size(); i++){
             String a1=lista.get(i);
             String[] a2=a1.split(";");
-            if (a2[-1]=="P"){
+            if (a2[-1].equals("P")){
                 planificadores.add(a2[0]+" "+a2[1]);
             }
         }
@@ -167,7 +172,7 @@ public class Cliente extends Usuario{
         for (int i=0; i<lista.size(); i++){
             String a1=lista.get(i);
             String[] a2=a1.split(",");
-            if ((a2[-1]=="pendiente") && (a2[1]==nombrecliente)){
+            if ((a2[-1].equals("pendiente")) && (a2[1].equals(nombrecliente))){
                 pagospendientes=a2[0];
             }
         }
