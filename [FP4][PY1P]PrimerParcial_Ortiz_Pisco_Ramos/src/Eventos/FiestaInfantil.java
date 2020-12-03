@@ -19,8 +19,8 @@ public class FiestaInfantil extends Evento{
     private int CantSorp;
     private boolean juegos;
 //constructor
-    public FiestaInfantil(int CantDisfr, int CantSorp, boolean juegos, TipoEvento tipoevento, LocalDate fecha, LocalTime horaIni, LocalTime horaFini, String estadoevento, Cliente cliente, Cliente planificador, int id, int codigo, String lugar, float precio, int capacidad, int numinvitados, Adicionales elemeadi, int disfrazados, int idordendepago) {
-        super(tipoevento, fecha, horaIni, horaFini, estadoevento, cliente, planificador, id, codigo, lugar, precio, capacidad, numinvitados, elemeadi, disfrazados, idordendepago);
+    public FiestaInfantil(int CantDisfr, int CantSorp, boolean juegos, TipoEvento tipoevento, LocalDate fecha, LocalTime horaIni, LocalTime horaFini, String estadoevento, Cliente cliente, Cliente planificador, int id, int codigo, String lugar, float precio, int capacidad, int numinvitados, int idordendepago) {
+        super(tipoevento, fecha, horaIni, horaFini, estadoevento, cliente, planificador, id, codigo, lugar, precio, capacidad, numinvitados, idordendepago);
         this.CantDisfr = CantDisfr;
         this.CantSorp = CantSorp;
         this.juegos = juegos;
@@ -48,6 +48,11 @@ public class FiestaInfantil extends Evento{
 
     public void setJuegos(boolean juegos) {
         this.juegos = juegos;
+    }
+    @Override
+    public int ValorDelEvento(){
+        this.ValorDeEvento=300;
+        return ValorDeEvento;
     }
     @Override
     public String MostrarMensaje(){

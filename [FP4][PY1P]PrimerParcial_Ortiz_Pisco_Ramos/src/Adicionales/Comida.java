@@ -16,6 +16,7 @@ public class Comida extends Adicionales{
     public Comida(int cantidad, double TotalAdicional) {
         super(cantidad, TotalAdicional);
     }
+
     @Override
     public double calculartotal(int cantidad){
         this.cantidad=cantidad;

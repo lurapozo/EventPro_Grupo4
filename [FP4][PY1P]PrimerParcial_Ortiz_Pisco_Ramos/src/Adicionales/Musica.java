@@ -17,10 +17,18 @@ public class Musica extends Adicionales{
     public Musica(int cantidad, double TotalAdicional) {
         super(cantidad, TotalAdicional);
     }
-//buscar alternativa de inicializar dato antes para crear el metodo calculartota solo con cantidad para asi realizar el override
-    public double calculartotal(int cantidad, musica dato){
+//getters y setters
+    public musica getDato() {
+        return dato;
+    }
+
+    public void setDato(musica dato) {
+        this.dato = dato;
+    }
+    
+    @Override
+    public double calculartotal(int cantidad){
         this.cantidad=cantidad;
-        this.dato=dato;
         if(cantidad==2){
             TotalAdicional=2300;
             return TotalAdicional;

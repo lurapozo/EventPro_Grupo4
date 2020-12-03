@@ -15,6 +15,7 @@ public class Fotografia extends Adicionales{
     public Fotografia( int cantidad, double TotalAdicional) {
         super(cantidad, TotalAdicional);
     }
+
     @Override
     public double calculartotal(int cantidad){
         this.cantidad=1;

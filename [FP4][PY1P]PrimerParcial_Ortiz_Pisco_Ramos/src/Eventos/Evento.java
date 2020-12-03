@@ -30,13 +30,12 @@ public class Evento {
     protected float precio;
     protected int capacidad;
     protected int numinvitados;
-    protected Adicionales elemeadi;
-    protected int disfrazados;
     protected int idordendepago;
+    protected int ValorDeEvento;
     //orden de pago
     //.
     //Constructor
-    public Evento(TipoEvento tipoevento, LocalDate fecha, LocalTime horaIni, LocalTime horaFini, String estadoevento, Cliente cliente, Cliente planificador, int id, int codigo, String lugar, float precio, int capacidad, int numinvitados, Adicionales elemeadi, int disfrazados, int idordendepago){
+    public Evento(TipoEvento tipoevento, LocalDate fecha, LocalTime horaIni, LocalTime horaFini, String estadoevento, Cliente cliente, Cliente planificador, int id, int codigo, String lugar, float precio, int capacidad, int numinvitados, int idordendepago){
         this.tipoevento = tipoevento;
         this.fecha = fecha;
         this.horaIni = horaIni;
@@ -50,9 +49,8 @@ public class Evento {
         this.precio = precio;
         this.capacidad = capacidad;
         this.numinvitados = numinvitados;
-        this.elemeadi = elemeadi;
-        this.disfrazados = disfrazados;
         this.idordendepago = idordendepago;
+        this.ValorDeEvento=0;
     }
     
     // getters
@@ -103,14 +101,6 @@ public class Evento {
 
     public int getNuminvitados() {
         return numinvitados;
-    }
-
-    public Adicionales getElemeadi() {
-        return elemeadi;
-    }
-
-    public int getDisfrazados() {
-        return disfrazados;
     }
 
     public int getIdordendepago() {
@@ -171,14 +161,6 @@ public class Evento {
         this.numinvitados = numinvitados;
     }
 
-    public void setElemeadi(Adicionales elemeadi) {
-        this.elemeadi = elemeadi;
-    }
-
-    public void setDisfrazados(int disfrazados) {
-        this.disfrazados = disfrazados;
-    }
-
     public void setIdordendepago(int idordendepago) {
         this.idordendepago = idordendepago;
     }
@@ -197,4 +179,8 @@ public class Evento {
     public String MostrarMensaje(){
         return "";
     }
+    //El valor del Evento se generara dependiendo del tipo de evento que es (Herencia)
+    public int ValorDelEvento(){
+        return ValorDeEvento;
+    }    
 }

@@ -16,6 +16,7 @@ public class Bebida extends Adicionales{
         super(cantidad, TotalAdicional);
     }
     //crear enum de bebidas y trata de ver la forma de leer varios tipos de bebidas con su respectiva cantidad. Pienso en crear una lista para ello
+
     @Override
     public double calculartotal(int cantidad){
         this.cantidad=cantidad;

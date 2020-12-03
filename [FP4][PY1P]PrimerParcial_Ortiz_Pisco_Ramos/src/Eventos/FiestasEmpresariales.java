@@ -18,8 +18,8 @@ public class FiestasEmpresariales extends Evento{
     private boolean transporte;
     private int CantPers;
 //costructor
-    public FiestasEmpresariales(boolean transporte, int CantPers, TipoEvento tipoevento, LocalDate fecha, LocalTime horaIni, LocalTime horaFini, String estadoevento, Cliente cliente, Cliente planificador, int id, int codigo, String lugar, float precio, int capacidad, int numinvitados, Adicionales elemeadi, int disfrazados, int idordendepago) {
-        super(tipoevento, fecha, horaIni, horaFini, estadoevento, cliente, planificador, id, codigo, lugar, precio, capacidad, numinvitados, elemeadi, disfrazados, idordendepago);
+    public FiestasEmpresariales(boolean transporte, int CantPers, TipoEvento tipoevento, LocalDate fecha, LocalTime horaIni, LocalTime horaFini, String estadoevento, Cliente cliente, Cliente planificador, int id, int codigo, String lugar, float precio, int capacidad, int numinvitados, int idordendepago) {
+        super(tipoevento, fecha, horaIni, horaFini, estadoevento, cliente, planificador, id, codigo, lugar, precio, capacidad, numinvitados, idordendepago);
         this.transporte = transporte;
         this.CantPers = CantPers;
     } 
@@ -38,6 +38,11 @@ public class FiestasEmpresariales extends Evento{
 
     public void setCantPers(int CantPers) {
         this.CantPers = CantPers;
+    }
+    @Override
+    public int ValorDelEvento(){
+        this.ValorDeEvento=2000;
+        return ValorDeEvento;
     }
     @Override
     public String MostrarMensaje(){
