@@ -5,6 +5,9 @@
  */
 package Menu;
 
+import java.util.ArrayList;
+import static trabajoconarchivos.ManejoArchivos.LeeFichero;
+
 /**
  *
  * @author Pisco
@@ -53,4 +56,8 @@ public class Usuario{
     public void setTipo(char tipo) {
         this.tipo = tipo;
     }
+    
+    
+    
+
 }

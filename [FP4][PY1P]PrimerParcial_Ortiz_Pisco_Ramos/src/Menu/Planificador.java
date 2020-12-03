@@ -6,6 +6,7 @@
 package Menu;
 
 import java.util.ArrayList;
+import static trabajoconarchivos.ManejoArchivos.LeeFichero;
 
 /**
  *
@@ -20,4 +21,16 @@ public class Planificador extends Usuario{
         tipo='P';
     }
     
+    //COnsultar eventos pendientes
+    public void consultPendientes(String nombrearchivo){
+        ArrayList<String> lista = LeeFichero(nombrearchivo);
+        int numero=1;
+        for (int i=0; i<lista.size(); i++){
+            String a1=lista.get(i);
+            String[] a2=a1.split(",");
+            if (a2[-1]=="pendiente"){
+                System.out.println(numero+".- "+a2[0]+" - "+a2[4]);
+            }
+        }        
+    }
 }
