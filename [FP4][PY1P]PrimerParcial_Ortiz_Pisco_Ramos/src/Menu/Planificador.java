@@ -6,6 +6,7 @@
 package Menu;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 import static trabajoconarchivos.ManejoArchivos.LeeFichero;
 
@@ -42,6 +43,7 @@ public class Planificador extends Usuario{
         String id=entrar.nextLine();
         ArrayList<String> lista4= LeeFichero("solicitudes.txt");
         System.out.println(lista4);
+        int precio=0;
         for (int i=0; i<lista4.size(); i++){
             String a1=lista4.get(i);
             String[] a2=a1.split(",");
@@ -54,12 +56,38 @@ public class Planificador extends Usuario{
                 System.out.println("Fecha Evento: "+a2[4]);
                 if(a2[6].equals("boda")){
                     System.out.println("Precio base: $3500 ");
+                    precio=3500;
                 }else if(a2[6].equals("fiesta infantil")){
                     System.out.println("Precio base: $300 ");
+                    precio=300;
                 }else if(a2[6].equals("fiesta empresarial")){
                     System.out.println("Precio base: $2000 ");
+                    precio=2000;
+                }
+            }
+            int codigo= generarCode();
+        }
+    }
+    
+    //codigo aleatorio de 4 digitios
+    public int generarCode(){
+        ArrayList<String> lista5= LeeFichero("eventos.txt");
+        Random rand = new Random(System.currentTimeMillis());
+        int intAletorio = rand.nextInt(9999);
+        int comprobante=0;
+        while(comprobante==0){
+            for (int i=0; i<lista5.size(); i++){
+                String a1=lista5.get(i);
+                String[] a2=a1.split(",");
+                if (a2[0].equals(intAletorio)){
+                    intAletorio = rand.nextInt(9999);
+                    comprobante=0;
+                    break;
+                }else{
+                    comprobante=1;
                 }
             }
         }
+        return intAletorio;
     }
 }

@@ -175,6 +175,7 @@ public class Interfaz {
                     contrasenias = entrada.nextLine();
                     System.out.println("Ingrese su número de telefono: ");
                     telefono = entrada.nextInt();
+                    entrada.nextLine();
                     System.out.println("Ingrese su correo electronico: ");
                     correo = entrada.nextLine();
                 }

@@ -72,9 +72,28 @@ public class Cliente extends Usuario{
         lista=LeeFichero("usuarios.txt");
         solicitud1.setPlanificador(asignarPlanificador(lista));
         if (respuesta.equals("S")){
+            int tip=0;
+            String tipoEvento="na";
+            while(tip !=1 && tip !=2 && tip !=3){
+                System.out.println("Confirme su tipo de evento: ");
+                System.out.println("1 Boda");
+                System.out.println("2 Fiesta Infantil");
+                System.out.println("3 Fiesta Empresarial");
+                tip =sc1.nextInt();
+                if (tip==1){
+                    tipoEvento="boda";
+                }else if(tip==2){
+                    tipoEvento="fiesta infantil";
+                }else if(tip==3){
+                    tipoEvento="fiesta empresarial";
+                }else{
+                    System.out.println("Ingreso invalido");
+                }
+            }
+            sc1.nextLine();
             solicitud1.setNumsolicitud();
             solicitud1.setEstadoevento(pendiente);
-            EscribirArchivo("solicitudes.txt",solicitud1.getNumsolicitud()+","+solicitud1.getCliente()+","+solicitud1.getPlanificador()+','+solicitud1.getFechasolicitud()+','+solicitud1.getFechaevento()+','+solicitud1.getEstadoevento()+','+2);
+            EscribirArchivo("solicitudes.txt",solicitud1.getNumsolicitud()+","+solicitud1.getCliente()+","+solicitud1.getPlanificador()+","+solicitud1.getFechasolicitud()+","+solicitud1.getFechaevento()+","+solicitud1.getEstadoevento()+","+tipoEvento);
         }else{
             System.out.println("Operacion cancelada");
         }
@@ -165,6 +184,7 @@ public class Cliente extends Usuario{
         String planificador=planificadores.get(answer);
         return planificador;
     }
+
     
     
     /*
