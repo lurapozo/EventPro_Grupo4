@@ -5,6 +5,8 @@
  */
 package Menu;
 
+import Eventos.Boda;
+import static Eventos.Boda.Transporte.*;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -42,7 +44,6 @@ public class Planificador extends Usuario{
         System.out.println("Ingrese el id de solicitud a ingresar: ");
         String id=entrar.nextLine();
         ArrayList<String> lista4= LeeFichero("solicitudes.txt");
-        System.out.println(lista4);
         int precio=0;
         for (int i=0; i<lista4.size(); i++){
             String a1=lista4.get(i);
@@ -55,17 +56,40 @@ public class Planificador extends Usuario{
                 System.out.println("Tipo Evento: "+a2[6]);
                 System.out.println("Fecha Evento: "+a2[4]);
                 if(a2[6].equals("boda")){
+                    Boda boda= new Boda();
                     System.out.println("Precio base: $3500 ");
-                    precio=3500;
+                    boda.ValorDelEvento();
+                    System.out.println("Quiere transporte?  [S/N]");
+                    String opcion=entrar.nextLine();
+                    if(opcion.equals("S")){
+                        boda.setTransporte(Aplica);
+                    }else{
+                        boda.setTransporte(NoAplica);
+                    }
                 }else if(a2[6].equals("fiesta infantil")){
                     System.out.println("Precio base: $300 ");
                     precio=300;
+                    System.out.println("Cuantos personajes disfrazados?  [Si no quiere escriba 0]");
+                    int opcion=entrar.nextInt();
+                    if(opcion!=0){
+                        //Si
+                    }else{
+                        //0
+                    }
                 }else if(a2[6].equals("fiesta empresarial")){
                     System.out.println("Precio base: $2000 ");
                     precio=2000;
+                    System.out.println("Quiere transporte?  [S/N]");
+                    String opcion=entrar.nextLine();
+                    if(opcion.equals("S")){
+                        System.out.println("Cuantos personas?  ");
+                        int opcion2=entrar.nextInt();
+                    }
                 }
             }
             int codigo= generarCode();
+            String nombrePlan=getNombre()+" "+getApellido();
+            String estado="PENDIENTE";
         }
     }
     

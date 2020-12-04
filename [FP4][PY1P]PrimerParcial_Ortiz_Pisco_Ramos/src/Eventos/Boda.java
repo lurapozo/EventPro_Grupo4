@@ -23,6 +23,10 @@ public class Boda extends Evento {
         this.transporte = transporte;
         this.TipoVehiculo = TipoVehiculo;
     }  
+    public Boda() {
+        this.transporte = transporte;
+        this.TipoVehiculo = TipoVehiculo;
+    }  
 //getters y setters
     public Transporte getTransporte() {
         return transporte;

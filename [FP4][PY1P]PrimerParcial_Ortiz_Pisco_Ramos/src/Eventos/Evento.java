@@ -58,6 +58,25 @@ public class Evento {
         this.ValorPagar=0;
         this.validador=0;
     }
+    public Evento(){
+        this.tipoevento = tipoevento;
+        this.fecha = fecha;
+        this.horaIni = horaIni;
+        this.horaFini = horaFini;
+        this.estadoevento = estadoevento;
+        this.cliente = cliente;
+        this.planificador = planificador;
+        this.id = id;
+        this.codigo = codigo;
+        this.lugar = lugar;
+        this.precio = precio;
+        this.capacidad = capacidad;
+        this.numinvitados = numinvitados;
+        this.idordendepago = idordendepago;
+        this.ValorDeEvento=0;
+        this.ValorPagar=0;
+        this.validador=0;
+    }
     
     // getters
 
