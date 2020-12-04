@@ -44,8 +44,8 @@ public class Interfaz {
                 System.out.println("                  Planificador");
                 System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
                 System.out.println("Escoja una opcion:  [1/2/3/4/5]");
-                System.out.println("1.- Solicitar evento");
-                System.out.println("2.- Registrar pago");
+                System.out.println("1.- Consultar solicitudes pendientes");
+                System.out.println("2.- Registrar evento");
                 System.out.println("3.- Confirmar evento");
                 System.out.println("4.- Consultar evento");
                 System.out.println("5.- Salir");
@@ -56,13 +56,13 @@ public class Interfaz {
                     System.out.println("           Consultar solicitud solicitud");
                     System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
                     
-                    // dfasdf
+                    pl1.consultPendientes("solicitudes.txt");
                 }else if(seleccion==2){
                     System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
                     System.out.println("                  Registrar Evento");
                     System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
                     
-                    //asda
+                    pl1.registEventos();
                 }else if(seleccion==3){
                     System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
                     System.out.println("                  Confirmar Evento");
