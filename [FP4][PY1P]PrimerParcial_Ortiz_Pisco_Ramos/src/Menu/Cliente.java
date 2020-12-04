@@ -70,7 +70,7 @@ public class Cliente extends Usuario{
         ArrayList<String> lista= new ArrayList<String>();
         lista=LeeFichero("usuarios.txt");
         solicitud1.setPlanificador(asignarPlanificador(lista));
-        
+        //54
         if (respuesta.equals("S")){
             solicitud1.setNumsolicitud();
             solicitud1.setEstadoevento(pendiente);
