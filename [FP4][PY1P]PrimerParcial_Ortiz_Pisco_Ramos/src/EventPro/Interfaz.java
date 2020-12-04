@@ -159,12 +159,12 @@ public class Interfaz {
             System.out.println("Ingrese su apellido: ");
             String apellido = entrada.nextLine();
             System.out.println("Ingrese su usuario: ");
-            String usuarios = entrada.nextLine();
+            String crearusuarios = entrada.nextLine();
             String Tipo = "x";
             int situacion = 0;
-            String contraseña="542";
-            int telefono=0;
-            String correo="";
+            String contrasenias = null;
+            int telefono = 0;
+            String correo = null;
             while (situacion==0){
                 System.out.println("Ingrese su Tipo de usuario: (C/P)");
                 String tipousuario = entrada.nextLine();
@@ -172,7 +172,7 @@ public class Interfaz {
                 if(Tipo.equals("C")){
                     situacion=1;
                     System.out.println("Ingrese su contraseña: ");
-                    contraseña = entrada.nextLine();
+                    contrasenias = entrada.nextLine();
                     System.out.println("Ingrese su número de telefono: ");
                     telefono = entrada.nextInt();
                     System.out.println("Ingrese su correo electronico: ");
@@ -180,6 +180,8 @@ public class Interfaz {
                 }
                 else if(Tipo.equals("P")){
                     situacion=1;
+                    System.out.println("Ingrese su contraseña: ");
+                    contrasenias = entrada.nextLine();
                 }
                 else{
                     System.out.println("valir invalido");
@@ -188,8 +190,8 @@ public class Interfaz {
             }
  
             
-            EscribirArchivo("clientes.txt",usuarios+";"+ telefono +";"+ correo);
-            EscribirArchivo("usuarios.txt",nombre+";"+apellido+";"+ usuario +";"+ contraseña +";"+Tipo);
+            EscribirArchivo("clientes.txt",crearusuarios+";"+ telefono +";"+ correo);
+            EscribirArchivo("usuarios.txt",nombre+";"+apellido+";"+ crearusuarios +";"+ contrasenias +";"+Tipo);
             
         }
             System.out.println("intente denuevo, usuario invalido.");
