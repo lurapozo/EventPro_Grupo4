@@ -32,6 +32,8 @@ public class Evento {
     protected int numinvitados;
     protected int idordendepago;
     protected int ValorDeEvento;
+    protected Adicionales adicionales;
+    protected double ValorPagar;
     //orden de pago
     //.
     //Constructor
@@ -51,6 +53,7 @@ public class Evento {
         this.numinvitados = numinvitados;
         this.idordendepago = idordendepago;
         this.ValorDeEvento=0;
+        this.ValorPagar=0;
     }
     
     // getters
@@ -183,4 +186,8 @@ public class Evento {
     public int ValorDelEvento(){
         return ValorDeEvento;
     }    
+    public double ValorFinal(Adicionales adicionales){
+        this.ValorPagar=ValorDeEvento + adicionales.calculartotal();
+        return ValorPagar;
+    }
 }

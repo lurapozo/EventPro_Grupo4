@@ -15,6 +15,13 @@ public class Adicionales {
     protected AdicionalTipo tipoadicional;
     protected int cantidad;
     protected double TotalAdicional;
+
+    public Adicionales(int cantidad, double TotalAdicional) {
+        this.tipoadicional = tipoadicional;
+        this.cantidad = cantidad;
+        this.TotalAdicional = TotalAdicional;
+    }
+    
 //getters y setters
     public AdicionalTipo getTipoadicional() {
         return tipoadicional;
@@ -40,14 +47,8 @@ public class Adicionales {
         this.TotalAdicional = TotalAdicional;
     }
     
-    public double calculartotal(int cantidad){
-        this.cantidad=cantidad;
+    public double calculartotal(){
         return TotalAdicional;
-    }
-
-    public Adicionales(int cantidad, double TotalAdicional) {
-        this.cantidad = cantidad;
-        this.TotalAdicional = TotalAdicional;
     }
     
 }

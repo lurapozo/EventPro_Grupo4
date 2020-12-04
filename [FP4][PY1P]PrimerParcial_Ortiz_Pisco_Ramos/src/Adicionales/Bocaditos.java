@@ -17,8 +17,7 @@ public class Bocaditos extends Adicionales{
     }
 
     @Override
-    public double calculartotal(int cantidad){
-        this.cantidad=cantidad;
+    public double calculartotal(){
         if(cantidad<=150){
             TotalAdicional= 0.25*cantidad;
             return TotalAdicional;

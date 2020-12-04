@@ -18,8 +18,7 @@ public class Comida extends Adicionales{
     }
 
     @Override
-    public double calculartotal(int cantidad){
-        this.cantidad=cantidad;
+    public double calculartotal(){
         TotalAdicional=cantidad*15;
         return TotalAdicional;
     }    

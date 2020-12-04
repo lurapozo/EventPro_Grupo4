@@ -27,7 +27,7 @@ public class Musica extends Adicionales{
     }
     
     @Override
-    public double calculartotal(int cantidad){
+    public double calculartotal(){
         this.cantidad=cantidad;
         if(cantidad==2){
             TotalAdicional=2300;
