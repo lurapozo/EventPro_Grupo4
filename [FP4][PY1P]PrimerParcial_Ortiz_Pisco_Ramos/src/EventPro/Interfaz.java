@@ -44,6 +44,7 @@ public class Interfaz {
             Cliente cl1= DatosDelCliente(usuario);
             cl1.ingresaSolicitud();
         }
+        entrada.close();
     }
     
     
@@ -64,7 +65,7 @@ public class Interfaz {
         ArrayList<String> lista= LeeFichero("usuarios.txt");
         int contador=0;
         String devolver = "No disponible";
-        for (int i=0; i<lista.size()-1; i++){
+        for (int i=0; i<lista.size(); i++){
             String a1=lista.get(i);
             String[] a2=a1.split(";");
             if (a2[2].equals(usuario)){
@@ -98,7 +99,7 @@ public class Interfaz {
         String apellido=null;
         String contrasenia=null;
         char tipo= 'C';
-        for (int i=0; i<lista1.size()-1; i++){
+        for (int i=0; i<lista1.size(); i++){
             String a1=lista1.get(i);
             String[] a2=a1.split(";");
             if (a2[0].equals(usuario)){
@@ -107,7 +108,7 @@ public class Interfaz {
             }
         }
         ArrayList<String> lista2= LeeFichero("usuarios.txt");
-        for (int o=0; o<lista2.size()-1; o++){
+        for (int o=0; o<lista2.size(); o++){
             String a3=lista2.get(o);
             String[] a4=a3.split(";");
             if (a4[2].equals(usuario)){

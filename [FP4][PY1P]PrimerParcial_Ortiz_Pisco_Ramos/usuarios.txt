@@ -4,3 +4,4 @@ Diego;Rojas;drojas;Diego123;P
 Andres;Roman;randres;Andres123;P
 Mercedes;Perez;mperez;perez123;P
 Luis;Teran;lteran;teran123;C
+Juan;Pisco;Elpisco;SebasEC;C

@@ -65,7 +65,7 @@ public class Cliente extends Usuario{
         LocalDate hoy= LocalDate.now();//yyyy-mm-dd , en vez de dd-mm-yyyy
         Solicitud solicitud1= new Solicitud(getNombre()+' '+getApellido(), hoy, fechaevento);
         Scanner sc1= new Scanner(System.in);
-        System.out.println("Datos correctos, desea registrar su solicitud?    [S/N}]");
+        System.out.println("Quiere registrar la solicitud?  [S/N]");
         String respuesta=sc1.nextLine();
         ArrayList<String> lista= new ArrayList<String>();
         lista=LeeFichero("usuarios.txt");
@@ -146,7 +146,6 @@ public class Cliente extends Usuario{
                 b=1;
             }
         }
-        sc.close();
         return fechaevento;
     }
     
@@ -156,7 +155,7 @@ public class Cliente extends Usuario{
         for (int i=0; i<lista.size(); i++){
             String a1=lista.get(i);
             String[] a2=a1.split(";");
-            if (a2[-1].equals("P")){
+            if (a2[4].equals("P")){
                 planificadores.add(a2[0]+" "+a2[1]);
             }
         }

@@ -165,7 +165,7 @@ public class ManejoArchivos {
             // Lectura del fichero
             String linea;
             while ((linea = br.readLine()) != null) {
-                System.out.println(linea);
+                //System.out.println(linea);
                 lineas.add(linea);
             }
 
@@ -195,7 +195,7 @@ public class ManejoArchivos {
             fichero = new FileWriter(nombreArchivo,true);
             bw = new BufferedWriter(fichero);
             bw.write(linea+"\n");
-            System.out.println("ksdsdlsd");
+            System.out.println("Archivo sobreescrito milagrosamente.");
 
         } catch (Exception e) {
             e.printStackTrace();
