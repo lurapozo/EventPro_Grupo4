@@ -74,7 +74,7 @@ public class Cliente extends Usuario{
         if (respuesta.equals("S")){
             solicitud1.setNumsolicitud();
             solicitud1.setEstadoevento(pendiente);
-            EscribirArchivo("solicitudes.txt",solicitud1.getNumsolicitud()+","+solicitud1.getCliente()+","+solicitud1.getPlanificador()+','+solicitud1.getFechasolicitud()+','+solicitud1.getFechaevento()+','+solicitud1.getEstadoevento());
+            EscribirArchivo("solicitudes.txt",solicitud1.getNumsolicitud()+","+solicitud1.getCliente()+","+solicitud1.getPlanificador()+','+solicitud1.getFechasolicitud()+','+solicitud1.getFechaevento()+','+solicitud1.getEstadoevento()+','+2);
         }else{
             System.out.println("Operacion cancelada");
         }

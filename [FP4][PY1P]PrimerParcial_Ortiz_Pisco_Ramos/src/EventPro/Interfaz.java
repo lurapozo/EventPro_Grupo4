@@ -58,12 +58,14 @@ public class Interfaz {
                     System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
                     
                     pl1.consultPendientes("solicitudes.txt");
+                    
                 }else if(seleccion==2){
                     System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
                     System.out.println("                  Registrar Evento");
                     System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
                     
                     pl1.registEventos();
+                    
                 }else if(seleccion==3){
                     System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
                     System.out.println("                  Confirmar Evento");
@@ -95,7 +97,8 @@ public class Interfaz {
                     System.out.println("             Nueva solicitud");
                     System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
                     
-                    cl1.ingresaSolicitud();  
+                    cl1.ingresaSolicitud(); 
+                    
                 }else if(seleccion==2){
                     System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
                     System.out.println("                    Pago");
