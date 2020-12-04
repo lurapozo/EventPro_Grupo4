@@ -70,16 +70,15 @@ public class Cliente extends Usuario{
         ArrayList<String> lista= new ArrayList<String>();
         lista=LeeFichero("usuarios.txt");
         solicitud1.setPlanificador(asignarPlanificador(lista));
-        //54
         if (respuesta.equals("S")){
             solicitud1.setNumsolicitud();
             solicitud1.setEstadoevento(pendiente);
-            EscribirArchivo("solicitudes.txt",solicitud1.getNumsolicitud()+','+solicitud1.getCliente()+','+solicitud1.getPlanificador()+','+solicitud1.getFechasolicitud()+','+solicitud1.getFechaevento()+','+solicitud1.getEstadoevento());
+            EscribirArchivo("solicitudes.txt",solicitud1.getNumsolicitud()+","+solicitud1.getCliente()+","+solicitud1.getPlanificador()+','+solicitud1.getFechasolicitud()+','+solicitud1.getFechaevento()+','+solicitud1.getEstadoevento());
         }else{
             System.out.println("Operacion cancelada");
         }
     }
-    
+    /*
     //Registrar Pago
     public void registrarPago(){
         ArrayList<String> lista = LeeFichero("solicitudes.txt");
@@ -92,15 +91,16 @@ public class Cliente extends Usuario{
         if (resp.equals("S")){
             System.out.println("Ingrese codigo de transaccion: ");
             int codigotransaccion = sc.nextInt();
+            sc.nextLine();
             LocalDate fecha1 = LocalDate.now();
             int codigoeventoINT = Integer.parseInt(codigoevento);
             estado=PagoPendiente;
-            double prueba= 12.0; //Aun no tenemos .getTotalpagar, por el momento usamos como valor defecto 12.0
+            double prueba= 0.0; //Aun no tenemos .getTotalpagar, por el momento usamos como valor defecto 12.0
             OrdenPago orden= new OrdenPago(codigoeventoINT, codigotransaccion, prueba, estado, fecha1);
+            System.out.println("Datos ingresados.");
         }
-        sc.close();
     }
-    
+    */
     //validar tiempo
     public LocalDate ValidarTiempo() {
         Scanner sc= new Scanner(System.in);
@@ -165,16 +165,18 @@ public class Cliente extends Usuario{
         return planificador;
     }
     
+    
+    /*
     //VERIFICAR PAGO PENDIENTE
     public String idPagoPendiente(ArrayList<String> lista, String nombrecliente){
         String pagospendientes = null;
         for (int i=0; i<lista.size(); i++){
             String a1=lista.get(i);
             String[] a2=a1.split(",");
-            if ((a2[-1].equals("pendiente")) && (a2[1].equals(nombrecliente))){
+            if ((a2[5].equals("pendiente")) && (a2[1].equals(nombrecliente))){
                 pagospendientes=a2[0];
             }
         }
         return pagospendientes;
-    }
+    }*/
 }
