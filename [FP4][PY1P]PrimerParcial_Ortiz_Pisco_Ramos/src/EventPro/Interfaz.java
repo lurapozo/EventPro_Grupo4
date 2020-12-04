@@ -9,6 +9,8 @@ import Menu.Planificador;
 import java.util.ArrayList;
 import java.util.Scanner;
 import static trabajoconarchivos.ManejoArchivos.LeeFichero;
+import static trabajoconarchivos.ManejoArchivos.EscribirArchivo;
+
 /**
  *
  * @author luisr
@@ -37,7 +39,6 @@ public class Interfaz {
         }
         int seleccion=0;
         if (verificador.equals("Planificador")){
-            //cosas informaticas aqui
             while (seleccion!=5){
                 Scanner scann= new Scanner(System.in);
                 System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
@@ -122,6 +123,7 @@ public class Interfaz {
     
     //Verificar usuario y contrasenia
     public static String validarUsuario(String usuario, String contrasenia){
+        Scanner entrada = new Scanner(System.in);
         ArrayList<String> lista= LeeFichero("usuarios.txt");
         int contador=0;
         String devolver = "No disponible";
@@ -145,6 +147,48 @@ public class Interfaz {
             
         }
         if(contador==0){
+            System.out.println("Quieres registrarte? (S/N)");
+            String opcion = entrada.nextLine();
+            String respuesta = opcion.toUpperCase();
+            if (respuesta.equals("S")){
+            System.out.println("Ingrese su nombre: ");;
+            String nombre = entrada.nextLine();
+            System.out.println("Ingrese su apellido: ");
+            String apellido = entrada.nextLine();
+            System.out.println("Ingrese su usuario: ");
+            String usuarios = entrada.nextLine();
+            String Tipo = "x";
+            int situacion = 0;
+            String contraseña="542";
+            int telefono=0;
+            String correo="";
+            while (situacion==0){
+                System.out.println("Ingrese su Tipo de usuario: (C/P)");
+                String tipousuario = entrada.nextLine();
+                Tipo = tipousuario.toUpperCase();
+                if(Tipo.equals("C")){
+                    situacion=1;
+                    System.out.println("Ingrese su contraseña: ");
+                    contraseña = entrada.nextLine();
+                    System.out.println("Ingrese su número de telefono: ");
+                    telefono = entrada.nextInt();
+                    System.out.println("Ingrese su correo electronico: ");
+                    correo = entrada.nextLine();
+                }
+                else if(Tipo.equals("P")){
+                    situacion=1;
+                }
+                else{
+                    System.out.println("valir invalido");
+                }
+                    
+            }
+ 
+            
+            EscribirArchivo("clientes.txt",usuarios+";"+ telefono +";"+ correo);
+            EscribirArchivo("usuarios.txt",nombre+";"+apellido+";"+ usuario +";"+ contraseña +";"+Tipo);
+            
+        }
             System.out.println("intente denuevo, usuario invalido.");
         }
         return devolver;

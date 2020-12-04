@@ -66,7 +66,8 @@ public class Cliente extends Usuario{
         Solicitud solicitud1= new Solicitud(getNombre()+' '+getApellido(), hoy, fechaevento);
         Scanner sc1= new Scanner(System.in);
         System.out.println("Quiere registrar la solicitud?  [S/N]");
-        String respuesta=sc1.nextLine();
+        String opcion=sc1.nextLine();
+        String respuesta = opcion.toUpperCase();
         ArrayList<String> lista= new ArrayList<String>();
         lista=LeeFichero("usuarios.txt");
         solicitud1.setPlanificador(asignarPlanificador(lista));
