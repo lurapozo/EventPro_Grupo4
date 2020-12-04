@@ -11,15 +11,14 @@ import static Adicionales.AdicionalTipo.comida;
  * @author luisr
  */
 public class Comida extends Adicionales{
-    private AdicionalTipo tipoadicional= comida;
     
-    public Comida(int cantidad, double TotalAdicional) {
-        super(cantidad, TotalAdicional);
+    public Comida() {
+        tipoadicional= comida;
     }
 
     @Override
     public double calculartotal(){
-        TotalAdicional=cantidad*15;
+        TotalAdicional=TotalAdicional+cantidad*15;
         return TotalAdicional;
     }    
 }

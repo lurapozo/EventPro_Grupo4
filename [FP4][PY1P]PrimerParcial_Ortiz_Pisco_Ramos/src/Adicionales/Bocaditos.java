@@ -10,19 +10,18 @@ import static Adicionales.AdicionalTipo.bocaditos;
  * @author luisr
  */
 public class Bocaditos extends Adicionales{
-    private AdicionalTipo tipoadicional= bocaditos;
     
-    public Bocaditos(int cantidad, double TotalAdicional) {
-        super(cantidad, TotalAdicional);
+    public Bocaditos() {
+        tipoadicional= bocaditos;
     }
 
     @Override
     public double calculartotal(){
         if(cantidad<=150){
-            TotalAdicional= 0.25*cantidad;
+            TotalAdicional= TotalAdicional + 0.25*cantidad;
             return TotalAdicional;
         }else{
-            TotalAdicional=0.1*cantidad;
+            TotalAdicional=TotalAdicional+0.1*cantidad;
             return TotalAdicional;
         }
     }    

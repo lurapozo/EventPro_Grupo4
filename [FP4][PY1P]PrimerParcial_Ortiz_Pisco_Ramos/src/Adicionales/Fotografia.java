@@ -10,15 +10,14 @@ import static Adicionales.AdicionalTipo.fotografia;
  * @author luisr
  */
 public class Fotografia extends Adicionales{
-    private AdicionalTipo tipoadicional= fotografia;
-    public Fotografia( int cantidad, double TotalAdicional) {
-        super(cantidad, TotalAdicional);
+    public Fotografia() {
+        tipoadicional= fotografia;
     }
 
     @Override
     public double calculartotal(){
         this.cantidad=1;
-        TotalAdicional=500;
+        TotalAdicional=TotalAdicional+500;
         return TotalAdicional;
     }   
 }

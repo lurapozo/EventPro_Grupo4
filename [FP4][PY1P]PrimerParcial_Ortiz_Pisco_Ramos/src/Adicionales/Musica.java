@@ -12,10 +12,10 @@ import Eventos.NumTypes;
  */
 public class Musica extends Adicionales{
 
-    private AdicionalTipo tipoadicional= musica;
     private musica dato;
-    public Musica(int cantidad, double TotalAdicional) {
-        super(cantidad, TotalAdicional);
+    public Musica() {
+        tipoadicional= musica;
+        dato=dato;
     }
 //getters y setters
     public musica getDato() {
@@ -29,18 +29,13 @@ public class Musica extends Adicionales{
     @Override
     public double calculartotal(){
         this.cantidad=cantidad;
-        if(cantidad==2){
-            TotalAdicional=2300;
-            return TotalAdicional;
-        }else {
-            switch(dato){
-                case DJ:
-                    TotalAdicional=300;
-                    return TotalAdicional;
-                case banda:
-                    TotalAdicional=2000;
-                    return TotalAdicional;      
-            }
+        switch(dato){
+            case DJ:
+                TotalAdicional=TotalAdicional+300;
+                return TotalAdicional;
+            case banda:
+                TotalAdicional=TotalAdicional+2000;
+                return TotalAdicional;      
         }
         return 0;
     }

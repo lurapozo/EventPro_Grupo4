@@ -13,13 +13,13 @@ import Eventos.NumTypes;
  */
 public class Adicionales {
     protected AdicionalTipo tipoadicional;
-    protected int cantidad;
-    protected double TotalAdicional;
+    protected int cantidad=0;
+    protected double TotalAdicional=0;
 
-    public Adicionales(int cantidad, double TotalAdicional) {
+    public Adicionales() {
         this.tipoadicional = tipoadicional;
-        this.cantidad = cantidad;
-        this.TotalAdicional = TotalAdicional;
+        this.cantidad = 0;
+        this.TotalAdicional = 0;
     }
     
 //getters y setters
