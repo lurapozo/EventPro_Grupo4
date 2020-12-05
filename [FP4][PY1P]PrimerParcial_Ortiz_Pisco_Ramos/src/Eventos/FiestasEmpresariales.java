@@ -18,8 +18,7 @@ public class FiestasEmpresariales extends Evento{
     private boolean transporte;
     private int CantPers;
 //costructor
-    public FiestasEmpresariales(boolean transporte, int CantPers, TipoEvento tipoevento, LocalDate fecha, LocalTime horaIni, LocalTime horaFini, String estadoevento, Cliente cliente, Cliente planificador, int id, int codigo, String lugar, float precio, int capacidad, int numinvitados, int idordendepago) {
-        super(tipoevento, fecha, horaIni, horaFini, estadoevento, cliente, planificador, id, codigo, lugar, precio, capacidad, numinvitados, idordendepago);
+    public FiestasEmpresariales(){
         this.transporte = transporte;
         this.CantPers = CantPers;
     } 

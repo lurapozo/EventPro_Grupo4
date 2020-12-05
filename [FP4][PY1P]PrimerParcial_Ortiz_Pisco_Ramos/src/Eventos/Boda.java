@@ -18,11 +18,6 @@ public class Boda extends Evento {
     private Transporte transporte;
     private String TipoVehiculo;
 //constructor
-    public Boda(Transporte transporte, String TipoVehiculo, TipoEvento tipoevento, LocalDate fecha, LocalTime horaIni, LocalTime horaFini, String estadoevento, Cliente cliente, Cliente planificador, int id, int codigo, String lugar, float precio, int capacidad, int numinvitados, int idordendepago) {
-        super(tipoevento, fecha, horaIni, horaFini, estadoevento, cliente, planificador, id, codigo, lugar, precio, capacidad, numinvitados, idordendepago);
-        this.transporte = transporte;
-        this.TipoVehiculo = TipoVehiculo;
-    }  
     public Boda() {
         this.transporte = transporte;
         this.TipoVehiculo = TipoVehiculo;

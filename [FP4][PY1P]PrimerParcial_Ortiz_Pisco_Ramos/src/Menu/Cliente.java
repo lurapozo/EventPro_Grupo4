@@ -31,7 +31,7 @@ import static trabajoconarchivos.ManejoArchivos.LeeFichero;
 public class Cliente extends Usuario{
     private String telefono;
     private String correo;
-    private EstadoP estado;
+    private String estado;
 //constructor de sobrecarga con todos los atributos
     public Cliente(String telefono, String correo, String nombre, String apellido, String contrasenia, char tipo) {
         super(nombre, apellido, contrasenia, tipo);
@@ -47,6 +47,14 @@ public class Cliente extends Usuario{
 
     public String getCorreo() {
         return correo;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public void setTelefono(String telefono) {

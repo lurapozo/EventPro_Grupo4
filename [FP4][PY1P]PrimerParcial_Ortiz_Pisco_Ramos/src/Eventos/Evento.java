@@ -8,6 +8,7 @@ package Eventos;
 import Adicionales.*;
 import static Adicionales.Musica.musica.*;
 import Menu.Cliente;
+import Tramites.Solicitud.EstadoEvento;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Random;
@@ -23,7 +24,7 @@ public class Evento {
     protected LocalDate fecha;
     protected LocalTime horaIni;
     protected LocalTime horaFini;
-    protected String estadoevento;
+    protected EstadoEvento estadoevento;
     protected Cliente cliente;
     protected Cliente planificador;
     protected int id;
@@ -39,7 +40,7 @@ public class Evento {
     //orden de pago
     //.
     //Constructor
-    public Evento(TipoEvento tipoevento, LocalDate fecha, LocalTime horaIni, LocalTime horaFini, String estadoevento, Cliente cliente, Cliente planificador, int id, int codigo, String lugar, float precio, int capacidad, int numinvitados, int idordendepago){
+    public Evento(TipoEvento tipoevento, LocalDate fecha, LocalTime horaIni, LocalTime horaFini, EstadoEvento estadoevento, Cliente cliente, Cliente planificador, int id, int codigo, String lugar, float precio, int capacidad, int numinvitados, int idordendepago){
         this.tipoevento = tipoevento;
         this.fecha = fecha;
         this.horaIni = horaIni;
@@ -96,7 +97,7 @@ public class Evento {
         return horaFini;
     }
 
-    public String getEstadoevento() {
+    public EstadoEvento getEstadoevento() {
         return estadoevento;
     }
 
@@ -150,7 +151,7 @@ public class Evento {
         this.horaFini = horaFini;
     }
 
-    public void setEstadoevento(String estadoevento) {
+    public void setEstadoevento(EstadoEvento estadoevento) {
         this.estadoevento = estadoevento;
     }
 

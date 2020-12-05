@@ -5,8 +5,10 @@
  */
 package Menu;
 
-import Eventos.Boda;
+
 import static Eventos.Boda.Transporte.*;
+import Eventos.*;
+import Tramites.Solicitud;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -57,39 +59,80 @@ public class Planificador extends Usuario{
                 System.out.println("Fecha Evento: "+a2[4]);
                 if(a2[6].equals("boda")){
                     Boda boda= new Boda();
+                    boda.setEstadoevento(Solicitud.EstadoEvento.pendiente);
                     System.out.println("Precio base: $3500 ");
                     boda.ValorDelEvento();
                     System.out.println("Quiere transporte?  [S/N]");
                     String opcion=entrar.nextLine();
+                    entrar.nextLine();
                     if(opcion.equals("S")){
                         boda.setTransporte(Aplica);
                     }else{
                         boda.setTransporte(NoAplica);
                     }
+                    System.out.println("Quiere agregar adicionales? [S/N]");
+                    String add= entrar.nextLine();
+                    entrar.nextLine();
+                    if(add.equals("S")){
+                        boda.CalcularTotal();
+                    }else{
+                        boda.ValorFinal(0);
+                    }                    
                 }else if(a2[6].equals("fiesta infantil")){
+                    FiestaInfantil fi= new FiestaInfantil();
+                    fi.setEstadoevento(Solicitud.EstadoEvento.pendiente);
                     System.out.println("Precio base: $300 ");
-                    precio=300;
+                    fi.ValorDelEvento();
                     System.out.println("Cuantos personajes disfrazados?  [Si no quiere escriba 0]");
                     int opcion=entrar.nextInt();
-                    if(opcion!=0){
-                        //Si
+                    entrar.nextLine();
+                    if (opcion>0){
+                    fi.setCantDisfr(opcion);
                     }else{
-                        //0
+                        System.out.println("Se ingreso un numero negativo, esto se tomara en cuenta como 0");
+                        fi.setCantDisfr(0);
                     }
+                    fi.setEstadoevento(Solicitud.EstadoEvento.pendiente);
+                    System.out.println("Quiere agregar adicionales? [S/N]");
+                    String add= entrar.nextLine();
+                    entrar.nextLine();
+                    if(add.equals("S")){
+                        fi.CalcularTotal();// Metodo para aniadir adicionales
+                    }else{
+                        fi.ValorFinal(0);// metodo para calcular el total final, se ingresa 0 porque no hay adicionales
+                    }   
+
                 }else if(a2[6].equals("fiesta empresarial")){
+                    entrar.nextLine();
+                    FiestasEmpresariales fe= new FiestasEmpresariales();
+                    fe.setEstadoevento(Solicitud.EstadoEvento.pendiente);
                     System.out.println("Precio base: $2000 ");
-                    precio=2000;
+                    fe.ValorDelEvento();
                     System.out.println("Quiere transporte?  [S/N]");
                     String opcion=entrar.nextLine();
                     if(opcion.equals("S")){
+                        fe.setTransporte(true);
                         System.out.println("Cuantos personas?  ");
                         int opcion2=entrar.nextInt();
+                        entrar.nextLine();
+                        fe.setCantPers(opcion2);
+                    }else{
+                        fe.setTransporte(false);
                     }
+                    System.out.println("Quiere agregar adicionales? [S/N]");
+                    String add= entrar.nextLine();
+                    entrar.nextLine();
+                    if(add.equals("S")){
+                        fe.CalcularTotal();
+                    }else{
+                        fe.ValorFinal(0);
+                    }                       
                 }
             }
             int codigo= generarCode();
             String nombrePlan=getNombre()+" "+getApellido();
             String estado="PENDIENTE";
+            
         }
     }
     
