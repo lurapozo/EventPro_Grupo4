@@ -113,7 +113,7 @@ public class Interfaz {
                     System.out.println("                    Pago");
                     System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
                     
-                    //cl1.registrarPago();
+                    cl1.registrarPago();
                 }                
             }            
         }

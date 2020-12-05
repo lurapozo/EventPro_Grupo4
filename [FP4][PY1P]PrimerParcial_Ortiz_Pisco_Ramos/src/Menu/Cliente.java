@@ -40,7 +40,7 @@ public class Cliente extends Usuario{
         tipo='C';
     }
     
-//getters y setters para poder usarlo en otras clases
+    //getters y setters para poder usarlo en otras clases
     public String getTelefono() {
         return telefono;
     }
@@ -106,13 +106,13 @@ public class Cliente extends Usuario{
             System.out.println("Operacion cancelada");
         }
     }
-    /*
     //Registrar Pago
     public void registrarPago(){
         ArrayList<String> lista = LeeFichero("solicitudes.txt");
-        String nombrecliente = getNombre()+' '+getApellido();
-        String codigoevento = idPagoPendiente(lista, nombrecliente);
-        System.out.println("El codigo de su orden es: "+codigoevento);
+        ArrayList<String> lista2 = LeeFichero("ordenPago.txt");
+        String nombrecliente = getNombre()+" "+getApellido();
+        String codigopago = idPagoPendiente(lista, lista2, nombrecliente);
+        System.out.println("El codigo de su orden es: "+codigopago);
         System.out.println("Desea registrar pago?   [S/N]");
         Scanner sc= new Scanner(System.in);
         String resp = sc.nextLine();
@@ -120,15 +120,20 @@ public class Cliente extends Usuario{
             System.out.println("Ingrese codigo de transaccion: ");
             int codigotransaccion = sc.nextInt();
             sc.nextLine();
-            LocalDate fecha1 = LocalDate.now();
-            int codigoeventoINT = Integer.parseInt(codigoevento);
-            estado=PagoPendiente;
-            double prueba= 0.0; //Aun no tenemos .getTotalpagar, por el momento usamos como valor defecto 12.0
-            OrdenPago orden= new OrdenPago(codigoeventoINT, codigotransaccion, prueba, estado, fecha1);
-            System.out.println("Datos ingresados.");
+            System.out.println(codigotransaccion);
+            for(int u=0; u<lista2.size(); u++){
+                String a1=lista2.get(u);
+                String[] a2=a1.split(",");
+                if(a2[0].equals(codigopago)){
+                    EscribirArchivo("ordenPago.txt",a2[0]+","+a2[1]+","+a2[2]+","+a2[3]+","+codigotransaccion+","+a2[5]);
+
+                }
+            }
+
         }
+        
     }
-    */
+   
     //validar tiempo
     public LocalDate ValidarTiempo() {
         Scanner sc= new Scanner(System.in);
@@ -193,19 +198,25 @@ public class Cliente extends Usuario{
         return planificador;
     }
 
-    
-    
-    /*
+
     //VERIFICAR PAGO PENDIENTE
-    public String idPagoPendiente(ArrayList<String> lista, String nombrecliente){
+    public String idPagoPendiente(ArrayList<String> lista, ArrayList<String> lista2, String nombre){
         String pagospendientes = null;
-        for (int i=0; i<lista.size(); i++){
-            String a1=lista.get(i);
+        String codigoevento = null;
+        for (int e=0; e<lista.size(); e++){
+            String a1=lista.get(e);
             String[] a2=a1.split(",");
-            if ((a2[5].equals("pendiente")) && (a2[1].equals(nombrecliente))){
+            if (a2[1].equals(nombre)){
+                codigoevento=a2[0];
+            }
+        }
+        for (int i=0; i<lista2.size(); i++){
+            String a1=lista2.get(i);
+            String[] a2=a1.split(",");
+            if ((a2[3].equals("Pago pendiente")) && (a2[1].equals(codigoevento))){
                 pagospendientes=a2[0];
             }
         }
         return pagospendientes;
-    }*/
+    }
 }
