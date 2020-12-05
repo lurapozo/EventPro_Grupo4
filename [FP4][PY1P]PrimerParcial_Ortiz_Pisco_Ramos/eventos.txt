@@ -1,5 +1,6 @@
 código,nombre_cliente,tipo,fecha,hora_inicio,hora_fin,capacidad,planificador,estado
 0110,Juan Pisco,boda,fecha,hora_inicio,hora_fin,20,Diego Rojas,APROBADA
-6078,Alonso Gonzalez,2222-02-02,2222-02-02,20:00,24:00,4000,Diego Rojas,PENDIENTE
-2052,Alonso Gonzalez,2222-02-02,2222-02-02,30,30,30,Diego Rojas,PENDIENTE
-5819,Alonso Gonzalez,2222-02-02,2222-02-02,345,345,345,Diego Rojas,PENDIENTE
+1062,Alonso Gonzalez,boda,2222-02-02,20:00,24:00,4000,Diego Rojas,PENDIENTE
+2052,Alonso Gonzalez,boda,2222-02-02,30,30,30,Diego Rojas,PENDIENTE
+5819,Alonso Gonzalez,boda,2222-02-02,345,345,345,Diego Rojas,PENDIENTE
+1062,Alonso Gonzalez,boda,2222-02-02,20:00,24:00,4000,Diego Rojas,APROBADA

@@ -64,7 +64,7 @@ public class Planificador extends Usuario{
                 System.out.println("Fecha Registro: "+a2[3]);
                 fecharegis=a2[3];
                 System.out.println("Tipo Evento: "+a2[6]);
-                tipoevento=a2[4];
+                tipoevento=a2[6];
                 System.out.println("Fecha Evento: "+a2[4]);
                 fechaevento=a2[4];
                 if(a2[6].equals("boda")){
@@ -201,6 +201,38 @@ public class Planificador extends Usuario{
             String[] a2=a1.split(",");
             if (a2[0].equals(id)){
                 a2[5]="aprobada";
+            }
+        }
+    }
+    
+    
+    
+    //Aprobar Pago
+    public void aprobarEvento(){
+        Scanner scanner300= new Scanner(System.in);
+        System.out.println("Ingrese el codigo de evento");
+        String codigoevento= scanner300.nextLine();
+        ArrayList<String> lista70= LeeFichero("eventos.txt");
+        for (int i=0; i<lista70.size(); i++){
+            String a1=lista70.get(i);
+            String[] a2=a1.split(",");
+            if (a2[0].equals(codigoevento)){
+                String aprobado="APROBADA";
+                EscribirArchivo("eventos.txt",a2[0]+","+a2[1]+","+a2[2]+","+a2[3]+","+a2[4]+","+a2[5]+","+a2[6]+","+a2[7]+","+aprobado);
+            }
+        }
+    }
+    public void aprobarOrdenDePAgo(){
+        Scanner scanner200= new Scanner(System.in);
+        System.out.println("Ingrese el codigo de pago");
+        String codigopago= scanner200.nextLine();
+        ArrayList<String> lista70= LeeFichero("ordenPago.txt");
+        for (int i=0; i<lista70.size(); i++){
+            String a1=lista70.get(i);
+            String[] a2=a1.split(",");
+            if (a2[0].equals(codigopago)){
+                String aprobado="aprobado";
+                EscribirArchivo("ordenPago.txt",a2[0]+","+a2[1]+","+a2[2]+","+aprobado+","+a2[4]+","+a2[5]);
             }
         }
     }

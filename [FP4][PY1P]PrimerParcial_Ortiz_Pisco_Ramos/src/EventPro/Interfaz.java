@@ -72,7 +72,9 @@ public class Interfaz {
                     System.out.println("                  Confirmar Evento");
                     System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
                     
-                    //asd
+                    pl1.aprobarOrdenDePAgo();
+                    pl1.aprobarEvento();
+                    
                 }else if(seleccion==4){
                     System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
                     System.out.println("                  Consultar Evento");
