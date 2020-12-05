@@ -22,7 +22,7 @@ public class Interfaz {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // Interfaz del usuario
         Scanner entrada = new Scanner(System.in);
         String verificador = "No disponible";
         String usuario="asdasd";
@@ -32,10 +32,14 @@ public class Interfaz {
             System.out.println("            BIENVENIDO AL SISTEMA");
             System.out.println();
             System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
+            //Se pide que ingrese usuario y contrasenia
             System.out.println("USUARIO: ");
             usuario = entrada.nextLine();
             System.out.println("CONTRASEÑA: ");
             String contraseña = entrada.nextLine();
+            //El siguiente metodo verifica si el usuario y la contrasenia son o
+            //no correctos, si no lo son, se da la oportunidad de registrar.
+            //tambien ve si el usuario es cliente o planificador
             verificador = validarUsuario(usuario, contraseña);
         }
         int seleccion=0;
@@ -45,6 +49,7 @@ public class Interfaz {
                 System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
                 System.out.println("                  Planificador");
                 System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
+                //las opciones del usuario planificador
                 System.out.println("Escoja una opcion:  [1/2/3/4/5]");
                 System.out.println("1.- Consultar solicitudes pendientes");
                 System.out.println("2.- Registrar evento");
@@ -94,6 +99,7 @@ public class Interfaz {
         }else {
             while (seleccion!=3){
                 Scanner scann= new Scanner(System.in);
+                //las opciones del usuario planificador
                 System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
                 System.out.println("                  CLIENTE");
                 System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
@@ -136,6 +142,9 @@ public class Interfaz {
     
     
     //Verificar usuario y contrasenia
+    //El siguiente metodo verifica si el usuario y la contrasenia son o
+    //no correctos, si no lo son, se da la oportunidad de registrar.
+    //tambien ve si el usuario es cliente o planificador
     public static String validarUsuario(String usuario, String contrasenia){
         Scanner entrada = new Scanner(System.in);
         ArrayList<String> lista= LeeFichero("usuarios.txt");
@@ -212,6 +221,7 @@ public class Interfaz {
     }
     
     //clientes
+    //Metodo para crear clientes
     public static Cliente DatosDelCliente(String usuario){
         ArrayList<String> lista1= LeeFichero("clientes.txt");
         String telefono=null;
@@ -243,6 +253,7 @@ public class Interfaz {
     }
         
     //planificadores
+    //Metodo para crear planificadores
     public static Planificador DatosDelPlanificador(String usuario){
         String nombre=null;
         String apellido=null;
@@ -263,6 +274,8 @@ public class Interfaz {
     }
     
     //Consultar Eventos
+    //penultima opcion del planificador
+    //muestra en pantalla las promociones
     public static void consultarEventos(String nombreDelPlanificador){
         Scanner scanner40=new Scanner(System.in);
         int a=0;
