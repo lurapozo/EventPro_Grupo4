@@ -11,7 +11,7 @@ import Eventos.NumTypes;
  *
  * @author Pisco
  */
-public class Adicionales {
+abstract class Adicionales {
     protected AdicionalTipo tipoadicional;
     protected int cantidad=0;
     protected double TotalAdicional=0;
@@ -47,9 +47,7 @@ public class Adicionales {
         this.TotalAdicional = TotalAdicional;
     }
     
-    public double calculartotal(){
-        return TotalAdicional;
-    }
+    abstract double calculartotal();
     
 }
     enum AdicionalTipo{

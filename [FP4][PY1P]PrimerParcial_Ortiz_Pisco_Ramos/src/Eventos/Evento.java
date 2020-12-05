@@ -18,7 +18,7 @@ import java.util.Scanner;
  *
  * @author Pisco
  */
-public class Evento {
+abstract class Evento {
     protected TipoEvento tipoevento;
     //protected Solicitud solicitud;
     protected LocalDate fecha;
@@ -133,6 +133,9 @@ public class Evento {
         return idordendepago;
     }
     
+    public double getValorPagar(){
+        return ValorPagar;
+    }
     //setters
 
     public void setTipoevento(TipoEvento tipoevento) {
@@ -202,13 +205,9 @@ public class Evento {
     public void setId(){
         id=obtieneId();
     }
-    public String MostrarMensaje(){
-        return "";
-    }
+    abstract String MostrarMensaje();
     //El valor del Evento se generara dependiendo del tipo de evento que es (Herencia)
-    public int ValorDelEvento(){
-        return ValorDeEvento;
-    }    
+    abstract int ValorDelEvento(); 
     public double ValorFinal(double adicional){
         this.ValorPagar=ValorPagar+ValorDeEvento + adicional;
         return ValorPagar;
@@ -239,11 +238,11 @@ public class Evento {
                 com.setCantidad(cantidad);
                 double t=com.calculartotal();
                 System.out.println("Total: "+ t);
-                System.out.println("Agragar (S/N)");
+                System.out.println("Agregar (S/N)");
                 String opcion= entrada.nextLine();
                 if (opcion.equals("S")){
                     double f=ValorFinal(t);
-                    System.out.println("Se ha agragado su seleccion");
+                    System.out.println("Se ha agregado su seleccion");
                     System.out.print("Total a pagar: "+ f);
                 }
             }else if(tip==2){
@@ -255,11 +254,11 @@ public class Evento {
                 boca.setCantidad(cantidad1);
                 double t1=boca.calculartotal();
                 System.out.println("Total: "+ t1);
-                System.out.println("Agragar (S/N)");
+                System.out.println("Agregar (S/N)");
                 String opcion1= entrada.nextLine();
                 if (opcion1.equals("S")){
                     double f1=ValorFinal(t1);
-                    System.out.println("Se ha agragado su seleccion");
+                    System.out.println("Se ha agregado su seleccion");
                     System.out.print("Total a pagar: "+ f1);
                 }
             }else if(tip==3){//Se usa el validador aqui
@@ -279,11 +278,11 @@ public class Evento {
                                         validador=1;
                                         double t21=mus.calculartotal();
                                         System.out.println("Total: "+ t21);
-                                        System.out.println("Agragar (S/N)");
+                                        System.out.println("Agregar (S/N)");
                                         String opcion2= entrada.nextLine();
                                         if (opcion2.equals("S")){
                                             double f2=ValorFinal(t21);
-                                            System.out.println("Se ha agragado su seleccion");
+                                            System.out.println("Se ha agregado su seleccion");
                                             System.out.print("Total a pagar: "+ f2);
                                         }
                                         break;
@@ -292,11 +291,11 @@ public class Evento {
                                         validador=2;
                                         double t22=mus.calculartotal();
                                         System.out.println("Total: "+ t22);
-                                        System.out.println("Agragar (S/N)");
+                                        System.out.println("Agregar (S/N)");
                                         String opcion22= entrada.nextLine();
                                         if (opcion22.equals("S")){
                                             double f2=ValorFinal(t22);
-                                            System.out.println("Se ha agragado su seleccion");
+                                            System.out.println("Se ha agregado su seleccion");
                                             System.out.print("Total a pagar: "+ f2);
                                         }
                                         break;
@@ -313,11 +312,11 @@ public class Evento {
                                         validador=3;
                                         double t22=mus.calculartotal();
                                         System.out.println("Total: "+ t22);
-                                        System.out.println("Agragar (S/N)");
+                                        System.out.println("Agregar (S/N)");
                                         String opcion22= entrada.nextLine();
                                         if (opcion22.equals("S")){
                                             double f2=ValorFinal(t22);
-                                            System.out.println("Se ha agragado su seleccion");
+                                            System.out.println("Se ha agregado su seleccion");
                                             System.out.print("Total a pagar: "+ f2);
                                         }
                                         break;
@@ -331,11 +330,11 @@ public class Evento {
                                         validador=3;
                                         double t21=mus.calculartotal();
                                         System.out.println("Total: "+ t21);
-                                        System.out.println("Agragar (S/N)");
+                                        System.out.println("Agregar (S/N)");
                                         String opcion2= entrada.nextLine();
                                         if (opcion2.equals("S")){
                                             double f2=ValorFinal(t21);
-                                            System.out.println("Se ha agragado su seleccion");
+                                            System.out.println("Se ha agregado su seleccion");
                                             System.out.print("Total a pagar: "+ f2);
                                         }
                                         break;
@@ -362,11 +361,11 @@ public class Evento {
                 Fotografia foto=new Fotografia();
                 double t3=foto.calculartotal();//no se ingresa datos porque fotografia solo tiene valor fijo
                 System.out.println("Total: "+ t3);
-                System.out.println("Agragar (S/N)");
+                System.out.println("Agregar (S/N)");
                 String opcion3= entrada.nextLine();
                 if (opcion3.equals("S")){
                     double f3=ValorFinal(t3);
-                    System.out.println("Se ha agragado su seleccion");
+                    System.out.println("Se ha agregado su seleccion");
                     System.out.print("Total a pagar: "+ f3);
                 }
             }else if (tip==5){

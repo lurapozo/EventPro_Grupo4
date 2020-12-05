@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package EventPro;
+import Eventos.*;
 import Menu.Cliente;
 import Menu.Planificador;
 import java.util.ArrayList;
@@ -76,8 +77,16 @@ public class Interfaz {
                     System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
                     System.out.println("                  Consultar Evento");
                     System.out.println("++++++++++++++++++++++++++++++++++++++++++++++");
-                    
-                    //sad
+                    ArrayList<String> lista1= LeeFichero("usuarios.txt");
+                    String nombreDelPlanificador = " ";
+                    for (int i=0; i<lista1.size(); i++){
+                        String a1=lista1.get(i);
+                        String[] a2=a1.split(";");
+                        if (a2[2].equals(usuario)){
+                            nombreDelPlanificador=a2[0]+" "+a2[1];
+                        }
+                    }
+                    consultarEventos(nombreDelPlanificador);
                 }                
             }
         }else {
@@ -249,6 +258,51 @@ public class Interfaz {
         }
         Planificador pl1= new Planificador(nombre, apellido, contrasenia, tipo);
         return pl1;
+    }
+    
+    //Consultar Eventos
+    public static void consultarEventos(String nombreDelPlanificador){
+        Scanner scanner40=new Scanner(System.in);
+        int a=0;
+        int resp = 0;
+        String tipo="";
+        while (a==0){
+            System.out.println("Elija el tipo de evento que desea consultar [1/2/3]");
+            System.out.println("1.-Boda");
+            System.out.println("2.-Fiesta Infantil");
+            System.out.println("3.-Fiesta Empresarial");
+            resp=scanner40.nextInt();
+            if(resp==1){
+                tipo="boda";
+                a=1;
+            }else if(resp==2){
+                tipo="fiesta infantil";
+                a=1;
+            }else if(resp==3){
+                tipo="fiesta empresarial";
+                a=1;
+            }
+        }
+        int contador = 0;
+        ArrayList<String> lista2= LeeFichero("eventos.txt");
+        for (int o=0; o<lista2.size(); o++){
+            String a3=lista2.get(o);
+            String[] a4=a3.split(",");
+            if (a4[7].equals(nombreDelPlanificador)&&a4[2].equals(tipo)){
+               contador++; 
+            }    
+        }
+        System.out.println("Tiene "+contador+" "+tipo+" asignadas");
+            if(resp==1){
+                Boda bod1=new Boda();
+                bod1.MostrarMensaje();
+            }else if(resp==2){
+                FiestaInfantil fiestaI=new FiestaInfantil();
+                fiestaI.MostrarMensaje();
+            }else if(resp==3){
+                FiestasEmpresariales fiestaE=new FiestasEmpresariales();
+                fiestaE.MostrarMensaje();
+            }
     }
 }
     

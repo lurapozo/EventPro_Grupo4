@@ -12,6 +12,7 @@ import Tramites.Solicitud;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
+import static trabajoconarchivos.ManejoArchivos.EscribirArchivo;
 import static trabajoconarchivos.ManejoArchivos.LeeFichero;
 
 /**
@@ -47,16 +48,25 @@ public class Planificador extends Usuario{
         String id=entrar.nextLine();
         ArrayList<String> lista4= LeeFichero("solicitudes.txt");
         int precio=0;
+        String tipoevento="";
+        String fechaevento="2111-01-01";
+        String nombCliente="";
+        String fecharegis = "";
+        double totalapagar=0.0;
         for (int i=0; i<lista4.size(); i++){
             String a1=lista4.get(i);
             String[] a2=a1.split(",");
             if (a2[0].equals(id)){
                 System.out.println("Datos: ");
                 System.out.println("Cliente: "+a2[1]);
+                nombCliente=a2[1];
                 System.out.println("Planificador Asignado: "+a2[2]);
                 System.out.println("Fecha Registro: "+a2[3]);
+                fecharegis=a2[3];
                 System.out.println("Tipo Evento: "+a2[6]);
+                tipoevento=a2[4];
                 System.out.println("Fecha Evento: "+a2[4]);
+                fechaevento=a2[4];
                 if(a2[6].equals("boda")){
                     Boda boda= new Boda();
                     boda.setEstadoevento(Solicitud.EstadoEvento.pendiente);
@@ -75,8 +85,10 @@ public class Planificador extends Usuario{
                     entrar.nextLine();
                     if(add.equals("S")){
                         boda.CalcularTotal();
+                        totalapagar=boda.getValorPagar();
                     }else{
                         boda.ValorFinal(0);
+                        totalapagar=boda.getValorPagar();
                     }                    
                 }else if(a2[6].equals("fiesta infantil")){
                     FiestaInfantil fi= new FiestaInfantil();
@@ -98,8 +110,10 @@ public class Planificador extends Usuario{
                     entrar.nextLine();
                     if(add.equals("S")){
                         fi.CalcularTotal();// Metodo para aniadir adicionales
+                        totalapagar=fi.getValorPagar();
                     }else{
                         fi.ValorFinal(0);// metodo para calcular el total final, se ingresa 0 porque no hay adicionales
+                        totalapagar=fi.getValorPagar();
                     }   
 
                 }else if(a2[6].equals("fiesta empresarial")){
@@ -124,16 +138,28 @@ public class Planificador extends Usuario{
                     entrar.nextLine();
                     if(add.equals("S")){
                         fe.CalcularTotal();
+                        totalapagar=fe.getValorPagar();
                     }else{
                         fe.ValorFinal(0);
+                        totalapagar=fe.getValorPagar();
                     }                       
                 }
             }
-            int codigo= generarCode();
-            String nombrePlan=getNombre()+" "+getApellido();
-            String estado="PENDIENTE";
-            
         }
+        int codigo= generarCode();
+        entrar.nextLine();
+        String nombrePlan=getNombre()+" "+getApellido();
+        String estado="PENDIENTE";
+        aprobarSolicitud(id);
+        System.out.println("Ingrese la hora de inicio:       [hh:mm]");
+        String hini=entrar.nextLine();
+        System.out.println("Ingrese la hora de de salida:       [hh:mm]");
+        String hfini=entrar.nextLine();
+        System.out.println("Ingrese la capacidad maxima: ");
+        String capacidad=entrar.nextLine();
+        EscribirArchivo("eventos.txt",codigo+","+nombCliente+","+tipoevento+","+fechaevento+","+hini+","+hfini+","+capacidad+","+nombrePlan+","+estado);
+        int idpago=codigodePago();
+        EscribirArchivo("ordenPago.txt",idpago+","+id+","+totalapagar+","+"Pago pendiente"+","+"Codigo de transaccion"+","+fecharegis);
     }
     
     //codigo aleatorio de 4 digitios
@@ -156,5 +182,26 @@ public class Planificador extends Usuario{
             }
         }
         return intAletorio;
+    }
+    
+    
+    //codigo de pago
+    //codigo aleatorio de 4 digitios
+    public int codigodePago(){
+        Random rand = new Random(System.currentTimeMillis());
+        int intAletorio = rand.nextInt(9999);
+        return intAletorio;
+    }
+    //aprobar
+    public void aprobarSolicitud(String id){
+        ArrayList<String> lista8= LeeFichero("solicitudes.txt");
+        
+        for (int i=0; i<lista8.size(); i++){
+            String a1=lista8.get(i);
+            String[] a2=a1.split(",");
+            if (a2[0].equals(id)){
+                a2[5]="aprobada";
+            }
+        }
     }
 }
